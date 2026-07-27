@@ -1,0 +1,289 @@
+{
+  "_updated": "2026-07-27T16:48:25.420867",
+  "_date": "2026/07/27",
+  "aIndex": [
+    {
+      "code": "sh000001",
+      "name": "上证指数",
+      "price": 3858.25,
+      "prev_close": 3814.2,
+      "change": 44.05,
+      "change_percent": 1.15,
+      "time": "2026-07-27"
+    },
+    {
+      "code": "sz399001",
+      "name": "深证成指",
+      "price": 14148.73,
+      "prev_close": 13774.68,
+      "change": 374.05,
+      "change_percent": 2.72,
+      "time": "2026-07-27"
+    },
+    {
+      "code": "sz399006",
+      "name": "创业板指",
+      "price": 3590.79,
+      "prev_close": 3480.87,
+      "change": 109.92,
+      "change_percent": 3.16,
+      "time": "2026-07-27"
+    }
+  ],
+  "marketBreadth": null,
+  "fundFlowTop10": [
+    {
+      "code": "sz002156",
+      "name": "通富微电",
+      "mainNetIn": 242384.27,
+      "price": 76.67,
+      "change_percent": 0.04
+    },
+    {
+      "code": "sz002185",
+      "name": "华天科技",
+      "mainNetIn": 69796.21,
+      "price": 18.59,
+      "change_percent": 0
+    },
+    {
+      "code": "sh688012",
+      "name": "中微公司",
+      "mainNetIn": 67682.61,
+      "price": 399.77,
+      "change_percent": 2.9
+    },
+    {
+      "code": "sz000021",
+      "name": "深科技",
+      "mainNetIn": 58672.13,
+      "price": 43.95,
+      "change_percent": 4.67
+    },
+    {
+      "code": "sz300433",
+      "name": "蓝思科技",
+      "mainNetIn": 48490.57,
+      "price": 36.63,
+      "change_percent": -1.85
+    },
+    {
+      "code": "sh688008",
+      "name": "澜起科技",
+      "mainNetIn": 41272.84,
+      "price": 227.45,
+      "change_percent": -2.66
+    },
+    {
+      "code": "sz002409",
+      "name": "雅克科技",
+      "mainNetIn": 41119.05,
+      "price": 169.35,
+      "change_percent": 10
+    },
+    {
+      "code": "sz300604",
+      "name": "长川科技",
+      "mainNetIn": 37809.3,
+      "price": 304.7,
+      "change_percent": 0.4
+    },
+    {
+      "code": "sz301536",
+      "name": "星宸科技",
+      "mainNetIn": 36440.08,
+      "price": 130,
+      "change_percent": -1.37
+    },
+    {
+      "code": "sz000811",
+      "name": "冰轮环境",
+      "mainNetIn": 35489.37,
+      "price": 43.43,
+      "change_percent": 0.42
+    }
+  ],
+  "usIndex": [],
+  "magnificent7": [
+    {
+      "code": "usAAPL.OQ",
+      "name": "苹果",
+      "price": 333.02,
+      "change_percent": 3.53
+    },
+    {
+      "code": "usMSFT.OQ",
+      "name": "微软",
+      "price": 381.7,
+      "change_percent": 0.03
+    },
+    {
+      "code": "usNVDA.OQ",
+      "name": "英伟达",
+      "price": 206.84,
+      "change_percent": -0.92
+    },
+    {
+      "code": "usGOOGL.OQ",
+      "name": "谷歌-A",
+      "price": 319.74,
+      "change_percent": 0.65
+    },
+    {
+      "code": "usAMZN.OQ",
+      "name": "亚马逊",
+      "price": 232.11,
+      "change_percent": -0.66
+    },
+    {
+      "code": "usMETA.OQ",
+      "name": "Meta Platforms, Inc.",
+      "price": 595.19,
+      "change_percent": -1.8
+    },
+    {
+      "code": "usTSLA.OQ",
+      "name": "特斯拉",
+      "price": 313.03,
+      "change_percent": -2.08
+    }
+  ],
+  "chipStocks": [
+    {
+      "code": "usMU.OQ",
+      "name": "美光科技",
+      "price": 920.95,
+      "change_percent": -6.99
+    },
+    {
+      "code": "usSNDK.OQ",
+      "name": "闪迪",
+      "price": 1436.56,
+      "change_percent": -10.79
+    }
+  ],
+  "news": [
+    {
+      "news_id": "SN20260727121658a6e751a4",
+      "news_title": "兆易创新盘中一度跌停！巨头暴涨为何“带不动”A股存储？",
+      "rank": "1",
+      "publish_time": 1785131474,
+      "source": "第一财经",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33818628,
+      "has_video": 0,
+      "images": [
+        "https://inews.gtimg.com/om_ls/OxSh8z_fxYRaPG9OEhNL4XqnwL8m-CvM1CevumjjEJCEQAA_240180/0"
+      ]
+    },
+    {
+      "news_id": "SN2026072713084694bb1f49",
+      "news_title": "10分钟4股直线涨停！脑机接口集体爆发，发生了什么？",
+      "rank": "2",
+      "publish_time": 1785129393,
+      "source": "券商中国",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33818624,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260727085135b673673a",
+      "news_title": "一文看市|多利好助力！A股放量普涨，创指大涨超3%，5100家个股上涨",
+      "rank": "3",
+      "publish_time": 1785136396,
+      "source": "腾讯自选股",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 262144,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260727100134a6e72307",
+      "news_title": "医药股再掀涨停潮！“医药女神”左手减持、右手加仓，板块后市如何？",
+      "rank": "4",
+      "publish_time": 1785129244,
+      "source": "腾讯自选股综合",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33816576,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260727103141b673923f",
+      "news_title": "长鑫科技开盘暴涨超470%登顶A股！创纪录成交致系统一度卡顿",
+      "rank": "5",
+      "publish_time": 1785119498,
+      "source": "金十数据",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33820672,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260727090540a49077c7",
+      "news_title": "市值超英特尔！长鑫一度暴涨530%创多项A股纪录 野村看高至116元",
+      "rank": "6",
+      "publish_time": 1785131635,
+      "source": "腾讯自选股综合",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33816576,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260727142933a6e7780c",
+      "news_title": "沪指收涨1.15%：A股放量反弹，PCB等算力硬件概念走强",
+      "rank": "7",
+      "publish_time": 1785135717,
+      "source": "腾讯自选股",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 262144,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN2026072713053094bb1e6e",
+      "news_title": "10分钟4股直线涨停！脑机接口集体大涨，发生了什么？",
+      "rank": "8",
+      "publish_time": 1785129300,
+      "source": "券商中国",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33818624,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN2026072710275198a4649d",
+      "news_title": "近三分之一组件厂已全面停产！",
+      "rank": "9",
+      "publish_time": 1785119264,
+      "source": "世纪新能源网",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33816576,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260727100434971fcc26",
+      "news_title": "订单暴增、“忙到冒烟”！储能赛道景气向好 多股业绩有望倍增",
+      "rank": "10",
+      "publish_time": 1785120651,
+      "source": "东方财富研究中心",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33820672,
+      "has_video": 0,
+      "images": []
+    }
+  ]
+}

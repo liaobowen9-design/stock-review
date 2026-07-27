@@ -1,5 +1,35 @@
 // ========== A股复盘网站 - 数据渲染引擎 ==========
 
+// 全局数据存储：先尝试从 data.json 加载，失败则用硬编码兜底
+let LIVE_DATA = null;
+
+async function loadData() {
+  try {
+    const resp = await fetch('data.json?_=' + Date.now());
+    if (resp.ok) {
+      LIVE_DATA = await resp.json();
+      console.log('[Data] Loaded from data.json, updated:', LIVE_DATA._updated);
+      return;
+    }
+  } catch(e) {
+    console.warn('[Data] data.json not available, using fallback');
+  }
+  LIVE_DATA = null;
+}
+
+// ========== 数据辅助函数 ==========
+function dget(path, fallback) {
+  // 从LIVE_DATA中按路径取值，不存在则返回fallback
+  if (!LIVE_DATA) return fallback;
+  const parts = path.split('.');
+  let obj = LIVE_DATA;
+  for (const p of parts) {
+    if (obj == null) return fallback;
+    obj = obj[p];
+  }
+  return obj !== undefined && obj !== null ? obj : fallback;
+}
+
 // 格式化数字
 function fmtNum(n, decimals = 2) {
   if (n == null || isNaN(n)) return '--';
@@ -84,8 +114,11 @@ function getMarketAssessment() {
 // A股市场量能
 function renderVolume() {
   const grid = document.getElementById('volumeGrid');
-  // 涨跌区间分布数据: [标签, 数量, 类型 up/down/flat]
-  const distData = [
+  // 从data.json获取涨跌分布数据
+  const mb = dget('marketBreadth', null);
+  let upCount = 555, downCount = 4940, flatCount = 36, limitUp = 43, limitDown = 25, upPct = 10;
+  let volume = '1.93万亿', volumeChg = -2641.61;
+  let distData = [
     { label: '涨停', count: 43, type: 'up' },
     { label: '>7%', count: 37, type: 'up' },
     { label: '5~7%', count: 38, type: 'up' },
@@ -98,6 +131,21 @@ function renderVolume() {
     { label: '-7%<', count: 170, type: 'down' },
     { label: '跌停', count: 25, type: 'down' },
   ];
+  if (mb && mb.overview) {
+    upCount = mb.overview.up || upCount;
+    downCount = mb.overview.down || downCount;
+    flatCount = mb.overview.flat || flatCount;
+    limitUp = mb.overview.limit_up || limitUp;
+    limitDown = mb.overview.limit_down || limitDown;
+    upPct = mb.overview.up_pct || upPct;
+    volume = mb.overview.volume || volume;
+    volumeChg = mb.overview.volume_chg || volumeChg;
+  }
+  if (mb && mb.distribution && mb.distribution.length) {
+    distData = mb.distribution.map(d => ({
+      label: d.range, count: d.count, type: d.direction === 'up' ? 'up' : d.direction === 'down' ? 'down' : 'flat'
+    }));
+  }
   const maxCount = Math.max(...distData.map(d => d.count));
 
   grid.innerHTML = `
@@ -138,11 +186,16 @@ function renderVolume() {
 }
 
 function renderAIndex() {
-  const data = [
+  const fallback = [
     { name: '上证指数', code: '000001', price: 3814.20, change: -62.58, pct: -1.61 },
     { name: '深证成指', code: '399001', price: 13774.68, change: -348.63, pct: -2.47 },
     { name: '创业板指', code: '399006', price: 3480.87, change: -94.65, pct: -2.65 },
   ];
+  const live = dget('aIndex', null);
+  const data = (live && live.length) ? live.map(d => ({
+    name: d.name, code: d.code,
+    price: d.price, change: d.change, pct: d.change_percent
+  })) : fallback;
 
   const grid = document.getElementById('aIndexGrid');
   grid.innerHTML = data.map(d => `
@@ -157,7 +210,7 @@ function renderAIndex() {
 }
 
 function renderFundFlowTop10() {
-  const data = [
+  const fallback = [
     { code: '002156', name: '通富微电', inflow: 242384.27, chg: 5.32 },
     { code: '002185', name: '华天科技', inflow: 69796.21, chg: 3.15 },
     { code: '688012', name: '中微公司', inflow: 67682.61, chg: 8.21 },
@@ -169,6 +222,12 @@ function renderFundFlowTop10() {
     { code: '301536', name: '星宸科技', inflow: 36440.08, chg: 12.56 },
     { code: '000811', name: '冰轮环境', inflow: 35489.37, chg: 2.11 },
   ];
+  const live = dget('fundFlowTop10', null);
+  const data = (live && live.length) ? live.map(d => ({
+    code: d.code ? d.code.replace(/^(sh|sz)/, '') : d.code,
+    name: d.name, inflow: d.mainNetIn, chg: d.change_percent,
+    fullCode: d.code
+  })) : fallback;
 
   const rankClass = (i) => {
     if (i === 0) return 'rank-gold';
@@ -442,7 +501,7 @@ function renderGlobalIndex() {
 }
 
 function renderM7() {
-  const data = [
+  const fallback = [
     { name: '苹果', code: 'AAPL', price: 333.02, chg: 3.53, currency: '$' },
     { name: '微软', code: 'MSFT', price: 381.70, chg: 0.03, currency: '$' },
     { name: '英伟达', code: 'NVDA', price: 206.84, chg: -0.92, currency: '$' },
@@ -451,6 +510,15 @@ function renderM7() {
     { name: 'Meta', code: 'META', price: 595.19, chg: -1.80, currency: '$' },
     { name: '特斯拉', code: 'TSLA', price: 313.03, chg: -2.08, currency: '$' },
   ];
+  const live = dget('magnificent7', null);
+  const codeMap = {
+    'usAAPL.OQ': 'AAPL', 'usMSFT.OQ': 'MSFT', 'usNVDA.OQ': 'NVDA',
+    'usGOOGL.OQ': 'GOOGL', 'usAMZN.OQ': 'AMZN', 'usMETA.OQ': 'META', 'usTSLA.OQ': 'TSLA'
+  };
+  const data = (live && live.length) ? live.map(d => ({
+    name: d.name, code: codeMap[d.code] || d.code,
+    price: d.price, chg: d.change_percent, currency: '$'
+  })) : fallback;
 
   const grid = document.getElementById('m7Grid');
   grid.innerHTML = data.map(d => `
@@ -464,7 +532,7 @@ function renderM7() {
 }
 
 function renderChipStocks() {
-  const data = [
+  const fallback = [
     { name: '美光科技', code: 'MU', price: 920.95, chg: -6.99, market: '美股', currency: '$' },
     { name: '闪迪', code: 'SNDK', price: 1436.56, chg: -10.79, market: '美股', currency: '$' },
     { name: '三星电子', code: '005930', price: 249500, chg: -7.59, market: '韩股', currency: '₩' },
@@ -474,6 +542,15 @@ function renderChipStocks() {
     { name: '中微公司', code: '688012', price: 245.80, chg: 8.21, market: 'A股', currency: '¥' },
     { name: '澜起科技', code: '688008', price: 89.45, chg: -1.23, market: 'A股', currency: '¥' },
   ];
+  const live = dget('chipStocks', null);
+  const data = (live && live.length) ? live.map(d => ({
+    name: d.name,
+    code: d.code ? d.code.replace(/^us/, '').replace(/\.OQ$/, '').replace(/^ks/, '') : d.code,
+    price: d.price,
+    chg: d.change_percent,
+    market: d.market === 'kr' ? '韩股' : '美股',
+    currency: d.market === 'kr' ? '₩' : '$'
+  })) : fallback;
 
   const grid = document.getElementById('chipGrid');
   grid.innerHTML = data.map(d => `
@@ -487,7 +564,7 @@ function renderChipStocks() {
 }
 
 function renderNews() {
-  const data = [
+  const fallback = [
     { title: '一周机会前瞻 | 韩国存储双雄拟签巨额大单；游戏行业重磅盛会将至', source: '腾讯自选股', time: '07-26' },
     { title: '公告精选 | 7天6板牛股提示风险；亿田智能公布20亿算力采购大单', source: '腾讯自选股', time: '07-26' },
     { title: '美伊暂停互袭！美方连续两晚停袭，伊军方：暂停对等打击', source: '华尔街见闻', time: '07-26' },
@@ -499,6 +576,12 @@ function renderNews() {
     { title: '华天科技这回谁也拦不住了', source: '财报时间', time: '07-26' },
     { title: '英伟达全面上调GPU套装价格：GDDR7/GDDR6同时涨，A股存储产业链谁最受益？', source: '时来才来', time: '07-26' },
   ];
+  const live = dget('news', null);
+  const data = (live && live.length) ? live.map(d => ({
+    title: d.news_title || d.title,
+    source: d.source || '',
+    time: d.publish_time ? new Date(d.publish_time * 1000).toLocaleDateString('zh-CN') : ''
+  })) : fallback;
 
   const list = document.getElementById('newsList');
   list.innerHTML = data.map(d => `
@@ -545,7 +628,11 @@ function refreshData() {
 }
 
 // ========== 初始化 ==========
-document.addEventListener('DOMContentLoaded', renderAll);
+async function init() {
+  await loadData();
+  renderAll();
+}
+document.addEventListener('DOMContentLoaded', init);
 
 // ========== 自动刷新（每5分钟） ==========
 setInterval(() => {

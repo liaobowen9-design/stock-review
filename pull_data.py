@@ -21,7 +21,7 @@ result['_updated'] = datetime.now().isoformat()
 result['_date'] = datetime.now().strftime('%Y/%m/%d')
 
 # 1. A股三大指数
-print('[1/6] A股指数...')
+print('[1/7] A股指数...')
 raw = run(WD, 'quote', 'sh000001,sz399001,sz399006', '--raw')
 if raw:
     d = json.loads(raw)
@@ -40,7 +40,7 @@ if raw:
     print(f'  -> {len(result["aIndex"])}条')
 
 # 2. 涨跌分布
-print('[2/6] 涨跌分布...')
+print('[2/7] 涨跌分布...')
 raw = run(WD, 'changedist', '--raw')
 if raw:
     d = json.loads(raw)
@@ -48,7 +48,7 @@ if raw:
     print('  -> OK')
 
 # 3. 主力资金TOP10 + 补充涨跌幅
-print('[3/6] 主力资金TOP10...')
+print('[3/7] 主力资金TOP10...')
 raw = run(WT, 'ranking', 'cap_main_net', '--limit', '10', '--raw')
 if raw:
     data = json.loads(raw)
@@ -73,8 +73,22 @@ if raw:
         })
     print(f'  -> {len(result["fundFlowTop10"])}条')
 
+# 3.5. 板块资金排行（流入/流出）
+print('[3.5/7] 板块排行...')
+raw = run(WD, 'sector', 'ranking', '--raw')
+if raw:
+    d = json.loads(raw)
+    sections = d.get('sections', [])
+    if len(sections) >= 1:
+        result['sectorTopGainers'] = sections[0]  # 行业涨幅
+    if len(sections) >= 2:
+        result['sectorConceptGainers'] = sections[1]  # 概念涨幅
+    if len(sections) >= 3:
+        result['sectorFlowIn'] = sections[2]  # 资金流入TOP
+    print(f'  板块涨幅: {len(result.get("sectorTopGainers", []))}条 | 资金流入: {len(result.get("sectorFlowIn", []))}条')
+
 # 4. 美股指数七姐妹
-print('[4/6] 美股数据...')
+print('[4/7] 美股数据...')
 result['usIndex'] = []
 result['magnificent7'] = []
 raw = run(WD, 'quote', 'usDJI,usIXIC,usINX,usNDX', '--raw')
@@ -103,7 +117,7 @@ if raw:
     print(f'  七姐妹: {len(result["magnificent7"])}条')
 
 # 5. 芯片股（美股+韩股）
-print('[5/6] 芯片股...')
+print('[5/7] 芯片股...')
 result['chipStocks'] = []
 raw = run(WD, 'quote', 'usMU.OQ,usSNDK.OQ', '--raw')
 if raw:
@@ -133,7 +147,7 @@ if raw:
 print(f'  -> {len(result["chipStocks"])}条')
 
 # 6. 资讯
-print('[6/6] 资讯...')
+print('[6/7] 资讯...')
 raw = run(WD, 'hot', 'news', '--limit', '10', '--raw')
 if raw:
     d = json.loads(raw)

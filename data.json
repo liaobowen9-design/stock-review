@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-07-27T16:48:25.420867",
+  "_updated": "2026-07-27T17:31:17.468185",
   "_date": "2026/07/27",
   "aIndex": [
     {
@@ -36,74 +36,226 @@
       "code": "sz002156",
       "name": "通富微电",
       "mainNetIn": 242384.27,
-      "price": 76.67,
-      "change_percent": 0.04
+      "price": null,
+      "change_percent": null
     },
     {
       "code": "sz002185",
       "name": "华天科技",
       "mainNetIn": 69796.21,
-      "price": 18.59,
-      "change_percent": 0
+      "price": null,
+      "change_percent": null
     },
     {
       "code": "sh688012",
       "name": "中微公司",
       "mainNetIn": 67682.61,
-      "price": 399.77,
-      "change_percent": 2.9
+      "price": null,
+      "change_percent": null
     },
     {
       "code": "sz000021",
       "name": "深科技",
       "mainNetIn": 58672.13,
-      "price": 43.95,
-      "change_percent": 4.67
+      "price": null,
+      "change_percent": null
     },
     {
       "code": "sz300433",
       "name": "蓝思科技",
       "mainNetIn": 48490.57,
-      "price": 36.63,
-      "change_percent": -1.85
+      "price": null,
+      "change_percent": null
     },
     {
       "code": "sh688008",
       "name": "澜起科技",
       "mainNetIn": 41272.84,
-      "price": 227.45,
-      "change_percent": -2.66
+      "price": null,
+      "change_percent": null
     },
     {
       "code": "sz002409",
       "name": "雅克科技",
       "mainNetIn": 41119.05,
-      "price": 169.35,
-      "change_percent": 10
+      "price": null,
+      "change_percent": null
     },
     {
       "code": "sz300604",
       "name": "长川科技",
       "mainNetIn": 37809.3,
-      "price": 304.7,
-      "change_percent": 0.4
+      "price": null,
+      "change_percent": null
     },
     {
       "code": "sz301536",
       "name": "星宸科技",
       "mainNetIn": 36440.08,
-      "price": 130,
-      "change_percent": -1.37
+      "price": null,
+      "change_percent": null
     },
     {
       "code": "sz000811",
       "name": "冰轮环境",
       "mainNetIn": 35489.37,
-      "price": 43.43,
-      "change_percent": 0.42
+      "price": null,
+      "change_percent": null
     }
   ],
-  "usIndex": [],
+  "sectorTopGainers": [
+    {
+      "name": "玻璃玻纤",
+      "changePct": "9.65",
+      "turnoverRate": "4.21",
+      "changePct5d": "5.93",
+      "changePct20d": "-38.99",
+      "leadStock": "国际复材(20.00)"
+    },
+    {
+      "name": "元件",
+      "changePct": "6.25",
+      "turnoverRate": "4.88",
+      "changePct5d": "5.37",
+      "changePct20d": "-25.01",
+      "leadStock": "方邦股份(10.71)"
+    },
+    {
+      "name": "综合Ⅱ",
+      "changePct": "5.33",
+      "turnoverRate": "2.13",
+      "changePct5d": "2.46",
+      "changePct20d": "-6.09",
+      "leadStock": "东阳光(8.62)"
+    },
+    {
+      "name": "酒店餐饮",
+      "changePct": "5.27",
+      "turnoverRate": "2.45",
+      "changePct5d": "1.61",
+      "changePct20d": "3.57",
+      "leadStock": "君亭酒店(11.47)"
+    },
+    {
+      "name": "化妆品",
+      "changePct": "5.12",
+      "turnoverRate": "2.72",
+      "changePct5d": "3.45",
+      "changePct20d": "3.80",
+      "leadStock": "水羊股份(14.05)"
+    },
+    {
+      "name": "汽车服务",
+      "changePct": "5.10",
+      "turnoverRate": "1.35",
+      "changePct5d": "6.86",
+      "changePct20d": "-0.84",
+      "leadStock": "阿尔特(16.44)"
+    }
+  ],
+  "sectorConceptGainers": [
+    {
+      "name": "电子布",
+      "changePct": "9.23",
+      "turnoverRate": "5.82",
+      "changePct5d": "7.74",
+      "changePct20d": "-35.25",
+      "leadStock": "国际复材(20.00)"
+    },
+    {
+      "name": "家用护理",
+      "changePct": "5.79",
+      "turnoverRate": "2.93",
+      "changePct5d": "4.16",
+      "changePct20d": "2.67",
+      "leadStock": "爱朋医疗(19.99)"
+    },
+    {
+      "name": "博通概念",
+      "changePct": "5.72",
+      "turnoverRate": "2.40",
+      "changePct5d": "7.44",
+      "changePct20d": "-18.61",
+      "leadStock": "胜蓝股份(12.78)"
+    },
+    {
+      "name": "陶瓷基板",
+      "changePct": "5.62",
+      "turnoverRate": "5.38",
+      "changePct5d": "8.14",
+      "changePct20d": "-29.72",
+      "leadStock": "三环集团(10.64)"
+    },
+    {
+      "name": "昨日触板",
+      "changePct": "5.33",
+      "turnoverRate": "12.33",
+      "changePct5d": "-3.66",
+      "changePct20d": "-25.47",
+      "leadStock": "日科化学(19.98)"
+    },
+    {
+      "name": "MLCC",
+      "changePct": "5.33",
+      "turnoverRate": "5.25",
+      "changePct5d": "9.73",
+      "changePct20d": "-34.13",
+      "leadStock": "三环集团(10.64)"
+    }
+  ],
+  "sectorFlowIn": [
+    {
+      "name": "元件",
+      "changePct": "6.25",
+      "mainNetInflow": "672891.69",
+      "mainNetInflow5d": "4975.74",
+      "upDownRatio": "59/60"
+    },
+    {
+      "name": "玻璃玻纤",
+      "changePct": "9.65",
+      "mainNetInflow": "369151.13",
+      "mainNetInflow5d": "14816.42",
+      "upDownRatio": "16/16"
+    },
+    {
+      "name": "电池",
+      "changePct": "4.13",
+      "mainNetInflow": "287021.02",
+      "mainNetInflow5d": "658017.68",
+      "upDownRatio": "95/97"
+    }
+  ],
+  "usIndex": [
+    {
+      "code": "usDJI",
+      "name": "",
+      "price": 51947.25,
+      "change_percent": 0.46,
+      "time": "2026-07-24"
+    },
+    {
+      "code": "usIXIC",
+      "name": "",
+      "price": 24975.82,
+      "change_percent": -0.64,
+      "time": "2026-07-24"
+    },
+    {
+      "code": "usINX",
+      "name": "",
+      "price": 7411.98,
+      "change_percent": 0.05,
+      "time": "2026-07-24"
+    },
+    {
+      "code": "usNDX",
+      "name": "",
+      "price": 28128.34,
+      "change_percent": -1.15,
+      "time": "2026-07-24"
+    }
+  ],
   "magnificent7": [
     {
       "code": "usAAPL.OQ",
@@ -202,11 +354,11 @@
       "images": []
     },
     {
-      "news_id": "SN20260727100134a6e72307",
-      "news_title": "医药股再掀涨停潮！“医药女神”左手减持、右手加仓，板块后市如何？",
+      "news_id": "SN2026072715571697204229",
+      "news_title": "A股市值“新王”诞生，长鑫科技上市首日十大看点",
       "rank": "4",
-      "publish_time": 1785129244,
-      "source": "腾讯自选股综合",
+      "publish_time": 1785139150,
+      "source": "第一财经",
       "news_type": 1,
       "cont_type": 0,
       "property": 33816576,
@@ -214,33 +366,21 @@
       "images": []
     },
     {
-      "news_id": "SN20260727103141b673923f",
-      "news_title": "长鑫科技开盘暴涨超470%登顶A股！创纪录成交致系统一度卡顿",
+      "news_id": "SN2026072713053094bb1e6e",
+      "news_title": "10分钟4股直线涨停！脑机接口集体大涨，发生了什么？",
       "rank": "5",
-      "publish_time": 1785119498,
-      "source": "金十数据",
+      "publish_time": 1785129300,
+      "source": "券商中国",
       "news_type": 1,
       "cont_type": 0,
-      "property": 33820672,
-      "has_video": 0,
-      "images": []
-    },
-    {
-      "news_id": "SN20260727090540a49077c7",
-      "news_title": "市值超英特尔！长鑫一度暴涨530%创多项A股纪录 野村看高至116元",
-      "rank": "6",
-      "publish_time": 1785131635,
-      "source": "腾讯自选股综合",
-      "news_type": 1,
-      "cont_type": 0,
-      "property": 33816576,
+      "property": 33818624,
       "has_video": 0,
       "images": []
     },
     {
       "news_id": "SN20260727142933a6e7780c",
       "news_title": "沪指收涨1.15%：A股放量反弹，PCB等算力硬件概念走强",
-      "rank": "7",
+      "rank": "6",
       "publish_time": 1785135717,
       "source": "腾讯自选股",
       "news_type": 1,
@@ -250,14 +390,26 @@
       "images": []
     },
     {
-      "news_id": "SN2026072713053094bb1e6e",
-      "news_title": "10分钟4股直线涨停！脑机接口集体大涨，发生了什么？",
-      "rank": "8",
-      "publish_time": 1785129300,
-      "source": "券商中国",
+      "news_id": "SN20260727090540a49077c7",
+      "news_title": "市值超英特尔！长鑫一度暴涨530%创多项A股纪录 野村看高至116元",
+      "rank": "7",
+      "publish_time": 1785131635,
+      "source": "腾讯自选股综合",
       "news_type": 1,
       "cont_type": 0,
-      "property": 33818624,
+      "property": 33816576,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260727100134a6e72307",
+      "news_title": "医药股再掀涨停潮！“医药女神”左手减持、右手加仓，板块后市如何？",
+      "rank": "8",
+      "publish_time": 1785129244,
+      "source": "腾讯自选股综合",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33816576,
       "has_video": 0,
       "images": []
     },

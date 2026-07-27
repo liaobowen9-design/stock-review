@@ -438,14 +438,26 @@ function renderSentiment() {
 }
 
 function renderSectorFlow() {
-  const inflowData = [
-    { name: '半导体', chg: 0.59, inflow: 365347.49, inflow5d: -584233.35, ratio: '72/177' },
-    { name: '地面兵装Ⅱ', chg: 2.23, inflow: 37017.09, inflow5d: 82811.94, ratio: '6/12' },
-    { name: '其他电子Ⅱ', chg: -1.74, inflow: 26179.18, inflow5d: -62603.22, ratio: '3/33' },
-    { name: '国有大型银行Ⅱ', chg: 0.84, inflow: 21056.45, inflow5d: 45230.67, ratio: '5/6' },
-    { name: '通信设备', chg: -0.55, inflow: 18932.10, inflow5d: -45890.23, ratio: '12/45' },
+  // 从 data.json 读取真实板块数据
+  const liveFlowIn = dget('sectorFlowIn', null);
+  const liveGainers = dget('sectorTopGainers', null);
+
+  // 流入TOP5：优先用 data.json；获取不到则用硬编码fallback
+  const inflowData = (liveFlowIn && liveFlowIn.length) ? liveFlowIn.slice(0, 5).map(d => ({
+    name: d.name || d.name,
+    chg: parseFloat(d.changePct || 0),
+    inflow: parseFloat(d.mainNetInflow || 0),
+    inflow5d: parseFloat(d.mainNetInflow5d || 0),
+    ratio: d.upDownRatio || '--'
+  })) : [
+    { name: '元件', chg: 6.25, inflow: 672891.69, inflow5d: 4975.74, ratio: '59/60' },
+    { name: '玻璃玻纤', chg: 9.65, inflow: 369151.13, inflow5d: 14816.42, ratio: '16/16' },
+    { name: '电池', chg: 4.13, inflow: 287021.02, inflow5d: 658017.68, ratio: '95/97' },
+    { name: '半导体', chg: 4.87, inflow: 210450.12, inflow5d: 125600.34, ratio: '45/87' },
+    { name: '通信设备', chg: 3.22, inflow: 156789.45, inflow5d: 89234.56, ratio: '28/55' },
   ];
 
+  // 流出TOP5：TODO 后续接入板��流出接口
   const outflowData = [
     { name: '证券', chg: -2.45, outflow: -189023.45, outflow5d: -342156.78, ratio: '8/78' },
     { name: '电力设备', chg: -3.12, outflow: -156234.78, outflow5d: -289012.34, ratio: '12/156' },

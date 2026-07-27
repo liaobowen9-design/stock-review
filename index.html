@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A股复盘 | 每日资金流向与全球市场概览</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="header">
+    <div class="header-left">
+      <h1 class="logo">📊 A股复盘</h1>
+      <span class="date-tag">2026-07-27 周一</span>
+    </div>
+    <div class="header-right">
+      <span class="data-source">数据来源：腾讯自选股 | 东方财富</span>
+      <button class="btn-refresh" onclick="refreshData()">🔄 刷新数据</button>
+    </div>
+  </header>
+
+  <!-- 主内容 -->
+  <main class="main-container">
+
+    <!-- 第一行：A股大盘指数 -->
+    <section class="card card-a-index">
+      <h2 class="card-title">🇨🇳 A股主要指数</h2>
+      <div class="index-grid" id="aIndexGrid"></div>
+    </section>
+
+    <!-- 第二行：A股市场量能 -->
+    <section class="card card-volume">
+      <h2 class="card-title">📊 A股市场量能</h2>
+      <span class="update-time">更新于 2026-07-24 收盘</span>
+      <div class="volume-grid" id="volumeGrid"></div>
+    </section>
+
+    <!-- 第三行：市场情绪 & 恐慌指数（含散户情绪） -->
+    <section class="card card-sentiment">
+      <h2 class="card-title">😱 市场情绪 · 恐慌指数 <span style="font-size:12px;font-weight:400;color:var(--text-muted)">— 含散户社区情绪权重</span></h2>
+      <span class="update-time">VIX/VHSI 07-25 美东收盘 | 散户情绪 07-26 21:00 更新 | 来源：恢恢量化/股吧/雪球</span>
+      <div class="sentiment-grid" id="sentimentGrid"></div>
+    </section>
+
+    <!-- 第四行：主力资金净流入TOP10 -->
+    <section class="card card-fund-flow">
+      <h2 class="card-title">💰 主力资金净流入 TOP10</h2>
+      <span class="update-time">更新于 2026-07-24 收盘</span>
+      <div class="table-wrap">
+        <table id="fundFlowTop10">
+          <thead>
+            <tr><th>排名</th><th>代码</th><th>名称</th><th>主力净流入(万)</th><th>涨跌幅</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 第五行：板块资金流向 -->
+    <div class="row-two-col">
+      <section class="card card-sector-inflow">
+        <h2 class="card-title">📈 板块资金流入 TOP5</h2>
+        <div class="table-wrap">
+          <table id="sectorInflow">
+            <thead>
+              <tr><th>板块</th><th>涨跌幅</th><th>主力净流入(万)</th><th>5日净流入(万)</th><th>涨跌比</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+      <section class="card card-sector-outflow">
+        <h2 class="card-title">📉 板块资金流出 TOP5</h2>
+        <div class="table-wrap">
+          <table id="sectorOutflow">
+            <thead>
+              <tr><th>板块</th><th>涨跌幅</th><th>主力净流出(万)</th><th>5日净流出(万)</th><th>涨跌比</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- 第六行：全球指数 -->
+    <section class="card card-global">
+      <h2 class="card-title">🌍 全球市场指数</h2>
+      <div class="global-grid" id="globalIndexGrid"></div>
+    </section>
+
+    <!-- 第七行：美股七姐妹 -->
+    <section class="card card-m7">
+      <h2 class="card-title">👑 美股七姐妹</h2>
+      <div class="stock-grid" id="m7Grid"></div>
+    </section>
+
+    <!-- 第八行：存储芯片个股 -->
+    <section class="card card-chip">
+      <h2 class="card-title">💾 存储芯片核心标的</h2>
+      <div class="stock-grid" id="chipGrid"></div>
+    </section>
+
+    <!-- 第九行：今日资讯 -->
+    <section class="card card-news">
+      <h2 class="card-title">📰 今日重要资讯</h2>
+      <ul class="news-list" id="newsList"></ul>
+    </section>
+
+  </main>
+
+  <!-- 底部 -->
+  <footer class="footer">
+    <p>⚠️ 本网站仅提供客观市场数据展示，不构成投资建议。投资有风险，决策需谨慎。</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

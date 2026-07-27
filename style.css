@@ -1,0 +1,773 @@
+/* ========== 全局变量 ========== */
+:root {
+  --bg: #f5f6f8;
+  --card-bg: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #5a5a7a;
+  --text-muted: #8a8a9a;
+  --red: #e53935;
+  --green: #2e7d32;
+  --blue: #1565c0;
+  --orange: #ef6c00;
+  --purple: #7b1fa2;
+  --cyan: #00838f;
+  --border: #e8e8f0;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --radius: 10px;
+  --header-bg: #1a1a2e;
+  --header-text: #ffffff;
+  /* 恐慌色阶 */
+  --fear-low: #2e7d32;
+  --fear-mid: #f9a825;
+  --fear-high: #e53935;
+  --fear-extreme: #8e24aa;
+}
+
+/* ========== 基础重置 ========== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* ========== 头部 ========== */
+.header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.date-tag {
+  background: rgba(255,255,255,0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.data-source {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.btn-refresh {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.btn-refresh:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ========== 主容器 ========== */
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ========== 卡片 ========== */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.update-time {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* ========== A股指数网格 ========== */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.index-item {
+  text-align: center;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+}
+
+.index-item .idx-name {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.index-item .idx-price {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.index-item .idx-change {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.idx-up { color: var(--red); }
+.idx-down { color: var(--green); }
+
+/* ========== 表格 ========== */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+th {
+  background: #f0f1f5;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+tr:hover td {
+  background: #f8f9ff;
+}
+
+.rank-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.rank-gold { background: #fff3e0; color: #e65100; }
+.rank-silver { background: #eceff1; color: #546e7a; }
+.rank-bronze { background: #fff8e1; color: #f9a825; }
+
+.up { color: var(--red); font-weight: 600; }
+.down { color: var(--green); font-weight: 600; }
+
+/* ========== 双列布局 ========== */
+.row-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ========== 情绪感知板块 ========== */
+.sentiment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.sentiment-gauges {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gauge-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+}
+
+.gauge-ring {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.gauge-ring svg {
+  transform: rotate(-90deg);
+}
+
+.gauge-bg {
+  fill: none;
+  stroke: #e8e8f0;
+  stroke-width: 8;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.gauge-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.gauge-val {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.gauge-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.gauge-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.gauge-info .gi-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.gauge-info .gi-subtitle {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.gauge-info .gi-level {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+
+.gauge-info .gi-detail {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.fear-low { background: var(--fear-low); }
+.fear-mid { background: var(--fear-mid); color: #333; }
+.fear-high { background: var(--fear-high); }
+.fear-extreme { background: var(--fear-extreme); }
+
+/* 情绪仪表盘 */
+.sentiment-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sentiment-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.sent-metric {
+  padding: 14px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.sent-metric .sm-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.sent-metric .sm-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.sent-metric .sm-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.sentiment-summary {
+  padding: 14px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.sentiment-summary .ss-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.sentiment-summary .ss-text {
+  color: var(--text-secondary);
+}
+
+/* ========== VIX期货期限结构 ========== */
+.vix-futures {
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+}
+
+.vix-futures .vf-title {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.vf-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  justify-content: space-around;
+}
+
+.vf-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.vf-bar {
+  width: 36px;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(to top, #e3f2fd, #1565c0);
+  transition: height 0.4s ease;
+  min-height: 4px;
+}
+
+.vf-bar-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.vf-bar-val {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.vf-status {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ========== 散户情绪面板 ========== */
+.retail-sentiment-card {
+  padding: 14px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+  margin-top: 12px;
+}
+
+.rs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rs-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.rs-source {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.rs-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rs-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rs-bar-label {
+  width: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.rs-bar-track {
+  flex: 1;
+  height: 18px;
+  background: #f0f1f5;
+  border-radius: 9px;
+  overflow: hidden;
+  position: relative;
+}
+
+.rs-bar-fill {
+  height: 100%;
+  border-radius: 9px;
+  transition: width 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  min-width: 30px;
+}
+
+.rs-bar-fill.retail-bull { background: var(--red); }
+.rs-bar-fill.retail-bear { background: var(--green); }
+.rs-bar-fill.retail-neutral { background: #90a4ae; }
+
+.rs-platforms {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.rs-platform-tag {
+  flex: 1;
+  text-align: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  background: #f5f5f5;
+  border: 1px solid var(--border);
+}
+
+.rs-platform-tag .pt-score {
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+}
+
+.rs-platform-tag .pt-name {
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ========== A股量能 ========== */
+.volume-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.vol-metric {
+  text-align: center;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+}
+
+.vol-metric .vm-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.vol-metric .vm-value {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.vol-metric .vm-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* 量能分布条形图 */
+.volume-distribution {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+  margin-top: 4px;
+}
+
+.vol-dist-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.vol-dist-bar {
+  width: 100%;
+  max-width: 60px;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.4s ease;
+  min-height: 2px;
+}
+
+.vol-dist-bar.up-bar { background: linear-gradient(to top, #ffcdd2, var(--red)); }
+.vol-dist-bar.down-bar { background: linear-gradient(to top, #c8e6c9, var(--green)); }
+.vol-dist-bar.flat-bar { background: #bdbdbd; }
+
+.vol-dist-count {
+  font-size: 9px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.vol-dist-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* ========== 全球指数网格 ========== */
+.global-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.global-item {
+  text-align: center;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+}
+
+.global-item .gl-name {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.global-item .gl-region {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.global-item .gl-price {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.global-item .gl-change {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ========== 个股网格 ========== */
+.stock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.stock-item {
+  padding: 14px;
+  border-radius: 8px;
+  background: #fafbff;
+  border: 1px solid var(--border);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.stock-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.stock-item .s-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stock-item .s-code {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.stock-item .s-price {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.stock-item .s-change {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ========== 资讯列表 ========== */
+.news-list {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.news-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.news-list li:hover {
+  color: var(--blue);
+}
+
+.news-list li:last-child {
+  border-bottom: none;
+}
+
+.news-list .news-source {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+
+/* ========== 底部 ========== */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 1024px) {
+  .row-two-col { grid-template-columns: 1fr; }
+  .global-grid { grid-template-columns: repeat(2, 1fr); }
+  .index-grid { grid-template-columns: repeat(2, 1fr); }
+  .sentiment-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .header { flex-direction: column; gap: 8px; padding: 12px 16px; }
+  .main-container { padding: 16px; }
+  .global-grid { grid-template-columns: 1fr 1fr; }
+  .index-grid { grid-template-columns: 1fr; }
+  .stock-grid { grid-template-columns: repeat(2, 1fr); }
+  .sentiment-metrics { grid-template-columns: 1fr; }
+}
+
+/* ========== 加载动画 ========== */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  color: transparent !important;
+  border-radius: 4px;
+}

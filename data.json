@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-07-27T17:31:17.468185",
+  "_updated": "2026-07-27T17:39:30.916639",
   "_date": "2026/07/27",
   "aIndex": [
     {
@@ -30,74 +30,140 @@
       "time": "2026-07-27"
     }
   ],
-  "marketBreadth": null,
+  "marketBreadth": {
+    "up": 5195,
+    "down": 286,
+    "flat": 52,
+    "limitUp": 121,
+    "limitDown": 7,
+    "upRatio": 93,
+    "totalAmount": 2076620477783.888,
+    "amountChange": 145480456220.73804,
+    "distribution": [
+      {
+        "range": "涨停",
+        "count": 121,
+        "direction": "up"
+      },
+      {
+        "range": ">7%",
+        "count": 206,
+        "direction": "up"
+      },
+      {
+        "range": "7~5%",
+        "count": 502,
+        "direction": "up"
+      },
+      {
+        "range": "5~2%",
+        "count": 2835,
+        "direction": "up"
+      },
+      {
+        "range": "2~0%",
+        "count": 1531,
+        "direction": "up"
+      },
+      {
+        "range": "平",
+        "count": 52,
+        "direction": "flat"
+      },
+      {
+        "range": "0~2%",
+        "count": 214,
+        "direction": "down"
+      },
+      {
+        "range": "2~5%",
+        "count": 46,
+        "direction": "down"
+      },
+      {
+        "range": "5~7%",
+        "count": 11,
+        "direction": "down"
+      },
+      {
+        "range": "7%<",
+        "count": 8,
+        "direction": "down"
+      },
+      {
+        "range": "跌停",
+        "count": 7,
+        "direction": "down"
+      }
+    ]
+  },
   "fundFlowTop10": [
     {
       "code": "sz002156",
-      "name": "通富微电",
+      "name": "-",
       "mainNetIn": 242384.27,
       "price": null,
       "change_percent": null
     },
     {
       "code": "sz002185",
-      "name": "华天科技",
+      "name": "-",
       "mainNetIn": 69796.21,
       "price": null,
       "change_percent": null
     },
     {
       "code": "sh688012",
-      "name": "中微公司",
+      "name": "-",
       "mainNetIn": 67682.61,
       "price": null,
       "change_percent": null
     },
     {
       "code": "sz000021",
-      "name": "深科技",
+      "name": "-",
       "mainNetIn": 58672.13,
       "price": null,
       "change_percent": null
     },
     {
       "code": "sz300433",
-      "name": "蓝思科技",
+      "name": "-",
       "mainNetIn": 48490.57,
       "price": null,
       "change_percent": null
     },
     {
       "code": "sh688008",
-      "name": "澜起科技",
+      "name": "-",
       "mainNetIn": 41272.84,
       "price": null,
       "change_percent": null
     },
     {
       "code": "sz002409",
-      "name": "雅克科技",
+      "name": "-",
       "mainNetIn": 41119.05,
       "price": null,
       "change_percent": null
     },
     {
       "code": "sz300604",
-      "name": "长川科技",
+      "name": "-",
       "mainNetIn": 37809.3,
       "price": null,
       "change_percent": null
     },
     {
       "code": "sz301536",
-      "name": "星宸科技",
+      "name": "-",
       "mainNetIn": 36440.08,
       "price": null,
       "change_percent": null
     },
     {
       "code": "sz000811",
-      "name": "冰轮环境",
+      "name": "-",
       "mainNetIn": 35489.37,
       "price": null,
       "change_percent": null
@@ -226,36 +292,7 @@
       "upDownRatio": "95/97"
     }
   ],
-  "usIndex": [
-    {
-      "code": "usDJI",
-      "name": "",
-      "price": 51947.25,
-      "change_percent": 0.46,
-      "time": "2026-07-24"
-    },
-    {
-      "code": "usIXIC",
-      "name": "",
-      "price": 24975.82,
-      "change_percent": -0.64,
-      "time": "2026-07-24"
-    },
-    {
-      "code": "usINX",
-      "name": "",
-      "price": 7411.98,
-      "change_percent": 0.05,
-      "time": "2026-07-24"
-    },
-    {
-      "code": "usNDX",
-      "name": "",
-      "price": 28128.34,
-      "change_percent": -1.15,
-      "time": "2026-07-24"
-    }
-  ],
+  "usIndex": [],
   "magnificent7": [
     {
       "code": "usAAPL.OQ",
@@ -302,16 +339,18 @@
   ],
   "chipStocks": [
     {
-      "code": "usMU.OQ",
-      "name": "美光科技",
-      "price": 920.95,
-      "change_percent": -6.99
+      "code": "ks005930",
+      "name": "Samsung Electronics Co., Ltd.",
+      "price": 254000,
+      "change_percent": 1.8036072144288577,
+      "market": "kr"
     },
     {
-      "code": "usSNDK.OQ",
-      "name": "闪迪",
-      "price": 1436.56,
-      "change_percent": -10.79
+      "code": "ks000660",
+      "name": "SK hynix Inc.",
+      "price": 1816000,
+      "change_percent": 3.2404775440591247,
+      "market": "kr"
     }
   ],
   "news": [
@@ -330,33 +369,9 @@
       ]
     },
     {
-      "news_id": "SN2026072713084694bb1f49",
-      "news_title": "10分钟4股直线涨停！脑机接口集体爆发，发生了什么？",
-      "rank": "2",
-      "publish_time": 1785129393,
-      "source": "券商中国",
-      "news_type": 1,
-      "cont_type": 0,
-      "property": 33818624,
-      "has_video": 0,
-      "images": []
-    },
-    {
-      "news_id": "SN20260727085135b673673a",
-      "news_title": "一文看市|多利好助力！A股放量普涨，创指大涨超3%，5100家个股上涨",
-      "rank": "3",
-      "publish_time": 1785136396,
-      "source": "腾讯自选股",
-      "news_type": 1,
-      "cont_type": 0,
-      "property": 262144,
-      "has_video": 0,
-      "images": []
-    },
-    {
       "news_id": "SN2026072715571697204229",
       "news_title": "A股市值“新王”诞生，长鑫科技上市首日十大看点",
-      "rank": "4",
+      "rank": "2",
       "publish_time": 1785139150,
       "source": "第一财经",
       "news_type": 1,
@@ -368,7 +383,7 @@
     {
       "news_id": "SN2026072713053094bb1e6e",
       "news_title": "10分钟4股直线涨停！脑机接口集体大涨，发生了什么？",
-      "rank": "5",
+      "rank": "3",
       "publish_time": 1785129300,
       "source": "券商中国",
       "news_type": 1,
@@ -378,9 +393,21 @@
       "images": []
     },
     {
+      "news_id": "SN20260727085135b673673a",
+      "news_title": "一文看市|多利好助力！A股放量普涨，创指大涨超3%，5100家个股上涨",
+      "rank": "4",
+      "publish_time": 1785136396,
+      "source": "腾讯自选股",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 262144,
+      "has_video": 0,
+      "images": []
+    },
+    {
       "news_id": "SN20260727142933a6e7780c",
       "news_title": "沪指收涨1.15%：A股放量反弹，PCB等算力硬件概念走强",
-      "rank": "6",
+      "rank": "5",
       "publish_time": 1785135717,
       "source": "腾讯自选股",
       "news_type": 1,
@@ -392,7 +419,7 @@
     {
       "news_id": "SN20260727090540a49077c7",
       "news_title": "市值超英特尔！长鑫一度暴涨530%创多项A股纪录 野村看高至116元",
-      "rank": "7",
+      "rank": "6",
       "publish_time": 1785131635,
       "source": "腾讯自选股综合",
       "news_type": 1,
@@ -404,7 +431,7 @@
     {
       "news_id": "SN20260727100134a6e72307",
       "news_title": "医药股再掀涨停潮！“医药女神”左手减持、右手加仓，板块后市如何？",
-      "rank": "8",
+      "rank": "7",
       "publish_time": 1785129244,
       "source": "腾讯自选股综合",
       "news_type": 1,
@@ -416,7 +443,7 @@
     {
       "news_id": "SN2026072710275198a4649d",
       "news_title": "近三分之一组件厂已全面停产！",
-      "rank": "9",
+      "rank": "8",
       "publish_time": 1785119264,
       "source": "世纪新能源网",
       "news_type": 1,
@@ -428,12 +455,24 @@
     {
       "news_id": "SN20260727100434971fcc26",
       "news_title": "订单暴增、“忙到冒烟”！储能赛道景气向好 多股业绩有望倍增",
-      "rank": "10",
+      "rank": "9",
       "publish_time": 1785120651,
       "source": "东方财富研究中心",
       "news_type": 1,
       "cont_type": 0,
       "property": 33820672,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260727092238a6e70f82",
+      "news_title": "分析四家铜箔企业年中预告：全面盈利但资本偏好PCB铜箔",
+      "rank": "10",
+      "publish_time": 1785114847,
+      "source": "证券之星",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 266240,
       "has_video": 0,
       "images": []
     }

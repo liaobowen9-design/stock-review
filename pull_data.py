@@ -15,6 +15,31 @@ def run(*args):
         print(f'  [WARN] {e}')
         return None
 
+def parse_quotes(raw):
+    """通用quote解析：兼容单股[{}]、批量{data:[{data:{}}]}、批量{data:[{}]}"""
+    if not raw: return []
+    d = json.loads(raw)
+    items = []
+    if isinstance(d, list):
+        items = d
+    elif isinstance(d, dict):
+        data_list = d.get('data', [])
+        if isinstance(data_list, list):
+            for elem in data_list:
+                if isinstance(elem, dict):
+                    inner = elem.get('data', elem)  # 有嵌套data.data就取内层
+                    if isinstance(inner, dict) and 'price' in inner:
+                        items.append(inner)
+    # 按symbol去重
+    seen = set()
+    result = []
+    for x in items:
+        sym = x.get('symbol') or x.get('code', '')
+        if sym and sym not in seen:
+            seen.add(sym)
+            result.append(x)
+    return result
+
 result = {'_updated': '', '_date': ''}
 from datetime import datetime
 result['_updated'] = datetime.now().isoformat()
@@ -24,18 +49,12 @@ result['_date'] = datetime.now().strftime('%Y/%m/%d')
 print('[1/7] A股指数...')
 raw = run(WD, 'quote', 'sh000001,sz399001,sz399006', '--raw')
 if raw:
-    d = json.loads(raw)
+    items = parse_quotes(raw)
     result['aIndex'] = [
-        {
-            'code': x['data']['symbol'],
-            'name': x['data']['name'],
-            'price': x['data']['price'],
-            'prev_close': x['data']['prev_close'],
-            'change': x['data']['change'],
-            'change_percent': x['data']['change_percent'],
-            'time': x['data'].get('time', '')
-        }
-        for x in d.get('data', []) if x.get('data') and x['data'].get('price')
+        {'code': x.get('symbol',''), 'name': x.get('name',''), 'price': x.get('price'),
+         'prev_close': x.get('prev_close'), 'change': x.get('change'),
+         'change_percent': x.get('change_percent'), 'time': x.get('time','')}
+        for x in items if x.get('price')
     ]
     print(f'  -> {len(result["aIndex"])}条')
 
@@ -44,8 +63,18 @@ print('[2/7] 涨跌分布...')
 raw = run(WD, 'changedist', '--raw')
 if raw:
     d = json.loads(raw)
-    result['marketBreadth'] = d.get('data')
-    print('  -> OK')
+    result['marketBreadth'] = {
+        'up': d.get('upCount', 0),
+        'down': d.get('downCount', 0),
+        'flat': d.get('flatCount', 0),
+        'limitUp': d.get('upLimitCount', 0),
+        'limitDown': d.get('downLimitCount', 0),
+        'upRatio': d.get('upRatio', 0),
+        'totalAmount': d.get('totalAmount', 0),
+        'amountChange': d.get('amountChange', 0),
+        'distribution': [{'range': x['section'], 'count': x['count'], 'direction': 'up' if x['flag'] == 1 else 'down' if x['flag'] == -1 else 'flat'} for x in d.get('detail', [])]
+    }
+    print(f'  上涨{result["marketBreadth"]["up"]}家 下跌{result["marketBreadth"]["down"]}家 占比{result["marketBreadth"]["upRatio"]}%')
 
 # 3. 主力资金TOP10 + 补充涨跌幅
 print('[3/7] 主力资金TOP10...')
@@ -56,11 +85,8 @@ if raw:
     # 补充个股涨跌幅
     quotes_raw = run(WD, 'quote', ','.join(codes), '--raw')
     quotes = {}
-    if quotes_raw:
-        qd = json.loads(quotes_raw)
-        for x in qd.get('data', []):
-            if x.get('data'):
-                quotes[x['data']['symbol']] = x['data']
+    for x in parse_quotes(quotes_raw):
+        quotes[x.get('symbol', '')] = x
     result['fundFlowTop10'] = []
     for x in data[:10]:
         q = quotes.get(x['代码'], {})
@@ -92,58 +118,44 @@ print('[4/7] 美股数据...')
 result['usIndex'] = []
 result['magnificent7'] = []
 raw = run(WD, 'quote', 'usDJI,usIXIC,usINX,usNDX', '--raw')
-if raw:
-    d = json.loads(raw)
-    for x in d.get('data', []):
-        if x.get('data') and x['data'].get('price'):
-            dd = x['data']
-            result['usIndex'].append({
-                'code': dd['symbol'], 'name': dd.get('name', dd['symbol']),
-                'price': dd['price'], 'change_percent': dd.get('change_percent'),
-                'time': dd.get('time', '')
-            })
-    print(f'  美股指数: {len(result["usIndex"])}条')
+for x in parse_quotes(raw):
+    if x.get('price'):
+        result['usIndex'].append({
+            'code': x.get('symbol',''), 'name': x.get('name', x.get('symbol','')),
+            'price': x.get('price'), 'change_percent': x.get('change_percent'),
+            'time': x.get('time','')
+        })
+print(f'  美股指数: {len(result["usIndex"])}条')
 
 raw = run(WD, 'quote', 'usAAPL.OQ,usMSFT.OQ,usNVDA.OQ,usGOOGL.OQ,usAMZN.OQ,usMETA.OQ,usTSLA.OQ', '--raw')
-if raw:
-    d = json.loads(raw)
-    for x in d.get('data', []):
-        if x.get('data') and x['data'].get('price'):
-            dd = x['data']
-            result['magnificent7'].append({
-                'code': dd['symbol'], 'name': dd.get('name', dd['symbol']),
-                'price': dd['price'], 'change_percent': dd.get('change_percent')
-            })
-    print(f'  七姐妹: {len(result["magnificent7"])}条')
+for x in parse_quotes(raw):
+    if x.get('price'):
+        result['magnificent7'].append({
+            'code': x.get('symbol',''), 'name': x.get('name', x.get('symbol','')),
+            'price': x.get('price'), 'change_percent': x.get('change_percent')
+        })
+print(f'  七姐妹: {len(result["magnificent7"])}条')
 
 # 5. 芯片股（美股+韩股）
 print('[5/7] 芯片股...')
 result['chipStocks'] = []
 raw = run(WD, 'quote', 'usMU.OQ,usSNDK.OQ', '--raw')
-if raw:
-    d = json.loads(raw)
-    items = d.get('data', []) if isinstance(d, dict) else (d if isinstance(d, list) else [])
-    for x in items:
-        if x.get('data') and x['data'].get('price'):
-            dd = x['data']
-            result['chipStocks'].append({
-                'code': dd['symbol'], 'name': dd.get('name', dd['symbol']),
-                'price': dd['price'], 'change_percent': dd.get('change_percent')
-            })
+for x in parse_quotes(raw):
+    if x.get('price'):
+        result['chipStocks'].append({
+            'code': x.get('symbol',''), 'name': x.get('name', x.get('symbol','')),
+            'price': x.get('price'), 'change_percent': x.get('change_percent')
+        })
 
 raw = run(WD, 'quote', 'ks005930,ks000660', '--raw')
-if raw:
-    d = json.loads(raw)
-    items_kr = d.get('data', []) if isinstance(d, dict) else (d if isinstance(d, list) else [])
-    for x in items_kr:
-        if x.get('data') and x['data'].get('price'):
-            dd = x['data']
-            result['chipStocks'].append({
-                'code': dd.get('code', ''), 'name': dd.get('name', ''),
-                'price': dd['price'],
-                'change_percent': dd.get('changePct', 0),
-                'market': 'kr'
-            })
+for x in parse_quotes(raw):
+    if x.get('price'):
+        result['chipStocks'].append({
+            'code': x.get('symbol', x.get('code','')), 'name': x.get('name',''),
+            'price': x.get('price'),
+            'change_percent': x.get('change_percent', x.get('changePct', 0)),
+            'market': 'kr'
+        })
 print(f'  -> {len(result["chipStocks"])}条')
 
 # 6. 资讯

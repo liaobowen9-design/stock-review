@@ -131,43 +131,49 @@ function renderVolume() {
     { label: '-7%<', count: 170, type: 'down' },
     { label: '跌停', count: 25, type: 'down' },
   ];
-  if (mb && mb.overview) {
-    upCount = mb.overview.up || upCount;
-    downCount = mb.overview.down || downCount;
-    flatCount = mb.overview.flat || flatCount;
-    limitUp = mb.overview.limit_up || limitUp;
-    limitDown = mb.overview.limit_down || limitDown;
-    upPct = mb.overview.up_pct || upPct;
-    volume = mb.overview.volume || volume;
-    volumeChg = mb.overview.volume_chg || volumeChg;
+  // 从 data.json 读取
+  if (mb) {
+    upCount = mb.up || upCount;
+    downCount = mb.down || downCount;
+    flatCount = mb.flat || flatCount;
+    limitUp = mb.limitUp || limitUp;
+    limitDown = mb.limitDown || limitDown;
+    upPct = mb.upRatio || upPct;
+    if (mb.totalAmount) {
+      const amt = mb.totalAmount / 1e8;
+      volume = amt >= 10000 ? (amt / 10000).toFixed(2) + '万亿' : amt.toFixed(0) + '亿';
+      volumeChg = mb.amountChange ? mb.amountChange / 1e8 : 0;
+    }
   }
   if (mb && mb.distribution && mb.distribution.length) {
     distData = mb.distribution.map(d => ({
-      label: d.range, count: d.count, type: d.direction === 'up' ? 'up' : d.direction === 'down' ? 'down' : 'flat'
+      label: d.range, count: d.count, type: d.direction
     }));
   }
+  const volChgStr = volumeChg !== undefined ? (volumeChg > 0 ? '+' : '') + (Math.abs(volumeChg) >= 10000 ? (volumeChg / 10000).toFixed(2) + '万亿' : volumeChg.toFixed(0) + '亿') : '-2641.61亿';
+  const volChgColor = volumeChg > 0 ? 'color:var(--red)' : 'color:var(--green)';
   const maxCount = Math.max(...distData.map(d => d.count));
 
   grid.innerHTML = `
     <div class="vol-metric">
       <div class="vm-label">💰 两市成交额</div>
-      <div class="vm-value">1.93<span style="font-size:14px">万亿</span></div>
-      <div class="vm-sub" style="color:var(--green)">较上日 -2641.61亿</div>
+      <div class="vm-value">${volume.includes('万') ? volume.replace('万','.<span style=\"font-size:14px\">万亿</span>') : volume}</div>
+      <div class="vm-sub" style="${volChgColor}">较上日 ${volChgStr}</div>
     </div>
     <div class="vol-metric">
       <div class="vm-label">📈 上涨家数</div>
-      <div class="vm-value" style="color:var(--red)">555</div>
-      <div class="vm-sub">涨停 43 家</div>
+      <div class="vm-value" style="color:var(--red)">${upCount.toLocaleString()}</div>
+      <div class="vm-sub">涨停 ${limitUp} 家</div>
     </div>
     <div class="vol-metric">
       <div class="vm-label">📉 下跌家数</div>
-      <div class="vm-value" style="color:var(--green)">4,940</div>
-      <div class="vm-sub">跌停 25 家</div>
+      <div class="vm-value" style="color:var(--green)">${downCount.toLocaleString()}</div>
+      <div class="vm-sub">跌停 ${limitDown} 家</div>
     </div>
     <div class="vol-metric">
       <div class="vm-label">📊 上涨占比</div>
-      <div class="vm-value">10<span style="font-size:14px">%</span></div>
-      <div class="vm-sub">情绪冰点 · 仅27%交易日在此区间</div>
+      <div class="vm-value" style="color:${upPct > 50 ? 'var(--red)' : 'var(--green)'}">${upPct}<span style="font-size:14px">%</span></div>
+      <div class="vm-sub">${upPct > 70 ? '🔥 情绪高涨' : upPct > 50 ? '市场偏强' : upPct > 30 ? '震荡分化' : '情绪冰点'}</div>
     </div>
     <div class="volume-distribution">
       ${distData.map(d => {

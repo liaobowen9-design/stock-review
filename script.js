@@ -52,12 +52,20 @@ function isTradeDay() {
   }
   return false;
 }
+// 通用数字格式化（无单位假设，按量级智能加亿/万）
 function fmtNum(n, decimals = 2) {
   if (n == null || isNaN(n)) return '--';
   const abs = Math.abs(n);
   if (abs >= 1e8) return (n / 1e8).toFixed(decimals) + '亿';
   if (abs >= 1e4) return (n / 1e4).toFixed(decimals) + '万';
   return n.toFixed(decimals);
+}
+
+// 资金专用格式化：输入为"万元"，直接转亿/万显示
+// 8063386.87万 → 806.34亿 | 131664.40万 → 13.17亿 | 94613.30万 → 9.46亿
+function fmtFund(n, decimals = 2) {
+  if (n == null || isNaN(n)) return '--';
+  return (n / 1e4).toFixed(decimals) + '亿';
 }
 
 function fmtPrice(n) {
@@ -270,7 +278,7 @@ function renderFundFlowTop10() {
       <td><span class="rank-num ${rankClass(i)}">${i + 1}</span></td>
       <td style="color:var(--text-muted)">${d.code}</td>
       <td style="font-weight:600">${d.name}</td>
-      <td class="up">${fmtNum(d.inflow)}</td>
+      <td class="up">${fmtFund(d.inflow)}</td>
       <td class="${colorClass(d.chg)}">${signedNum(d.chg, '%')}</td>
     </tr>
   `).join('');
@@ -501,8 +509,8 @@ function renderSectorFlow() {
     <tr>
       <td style="font-weight:600">${d.name}</td>
       <td class="${colorClass(d.chg)}">${signedNum(d.chg, '%')}</td>
-      <td class="${d.inflow > 0 ? 'up' : 'down'}">${d.inflow != null ? fmtNum(d.inflow) : '--'}</td>
-      <td class="${colorClass(d.inflow5d)}">${d.inflow5d != null ? fmtNum(d.inflow5d) : '--'}</td>
+      <td class="${d.inflow > 0 ? 'up' : 'down'}">${d.inflow != null ? fmtFund(d.inflow) : '--'}</td>
+      <td class="${colorClass(d.inflow5d)}">${d.inflow5d != null ? fmtFund(d.inflow5d) : '--'}</td>
       <td>${d.ratio}</td>
     </tr>
   `).join('');

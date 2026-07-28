@@ -61,11 +61,11 @@ function fmtNum(n, decimals = 2) {
   return n.toFixed(decimals);
 }
 
-// 资金专用格式化：输入为"万元"，直接转亿/万显示
-// 8063386.87万 → 806.34亿 | 131664.40万 → 13.17亿 | 94613.30万 → 9.46亿
+// 资金专用格式化：输入为"元"，直接转亿显示
+// 475430644 元 → 4.75亿
 function fmtFund(n, decimals = 2) {
-  if (n == null || isNaN(n)) return '--';
-  return (n / 1e4).toFixed(decimals) + '亿';
+  if (n == null || isNaN(n) || n === 0) return '--';
+  return (n / 1e8).toFixed(decimals) + '亿';
 }
 
 function fmtPrice(n) {
@@ -479,11 +479,12 @@ function renderSectorFlow() {
   const liveGainers = dget('sectorTopGainers', null);
 
   // 流入：优先用 sectorFlowIn 数据（API 仅返回 TOP3 资金流入板块）
+  // 注意：sectorFlowIn 的 mainNetInflow 单位是万元，转成元统一格式
   const inflowData = (liveFlowIn && liveFlowIn.length) ? liveFlowIn.map(d => ({
     name: d.name,
     chg: parseFloat(d.changePct || 0),
-    inflow: parseFloat(d.mainNetInflow || 0),
-    inflow5d: parseFloat(d.mainNetInflow5d || 0),
+    inflow: parseFloat(d.mainNetInflow || 0) * 10000,
+    inflow5d: parseFloat(d.mainNetInflow5d || 0) * 10000,
     ratio: d.upDownRatio || '--'
   })) : [
     { name: '--', chg: 0, inflow: 0, inflow5d: 0, ratio: '--' },

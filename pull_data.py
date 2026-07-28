@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """A股复盘数据拉取脚本 - 每次运行从westock-data/--raw拉取全量数据写入data.json"""
-import json, subprocess, os
+import json, subprocess, os, urllib.request
 
 ND = 'C:/Users/31471/.workbuddy/binaries/node/versions/22.22.2/node.exe'
 WD = 'E:/workbuddy/WorkBuddyAI/resources/app.asar.unpacked/resources/builtin-skills/westock-data/scripts/index.js'
@@ -76,28 +76,50 @@ if raw:
     }
     print(f'  上涨{result["marketBreadth"]["up"]}家 下跌{result["marketBreadth"]["down"]}家 占比{result["marketBreadth"]["upRatio"]}%')
 
-# 3. 主力资金TOP10 + 补充涨跌幅
+# 3. 主力资金净流入 TOP10（来源：npcs1983.top API）
 print('[3/7] 主力资金TOP10...')
-raw = run(WT, 'ranking', 'cap_main_net', '--limit', '10', '--raw')
-if raw:
-    data = json.loads(raw)
-    codes = [x['代码'] for x in data[:10]]
-    # 补充个股涨跌幅
-    quotes_raw = run(WD, 'quote', ','.join(codes), '--raw')
-    quotes = {}
-    for x in parse_quotes(quotes_raw):
-        quotes[x.get('symbol', '')] = x
-    result['fundFlowTop10'] = []
-    for x in data[:10]:
-        q = quotes.get(x['代码'], {})
-        result['fundFlowTop10'].append({
-            'code': x['代码'],
-            'name': q.get('name', '') or x.get('名称', ''),
-            'mainNetIn': x['MainNetIn'],
-            'price': q.get('price'),
-            'change_percent': q.get('change_percent')
-        })
-    print(f'  -> {len(result["fundFlowTop10"])}条')
+try:
+    req = urllib.request.Request(
+        'https://npcs1983.top/api/main-fund-flow',
+        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+    )
+    resp = urllib.request.urlopen(req, timeout=15)
+    api_data = json.loads(resp.read().decode('utf-8'))
+    top_inflow = api_data.get('inflow', [])[:10]
+    result['fundFlowTop10'] = [
+        {
+            'code': d['code'],
+            'name': d.get('name', ''),
+            'mainNetIn': d.get('main_net_amount', 0),
+            'price': d.get('price'),
+            'change_percent': d.get('change_pct')
+        }
+        for d in top_inflow
+        if d.get('code')
+    ]
+    print(f'  -> {len(result["fundFlowTop10"])}条 (npcs1983)')
+except Exception as e:
+    print(f'  [WARN] npcs1983 API failed: {e}, fallback to westock-tool')
+    raw = run(WT, 'ranking', 'cap_main_net', '--limit', '10', '--raw')
+    if raw:
+        data = json.loads(raw)
+        codes = [x['代码'] for x in data[:10]]
+        quotes_raw = run(WD, 'quote', ','.join(codes), '--raw')
+        quotes = {}
+        for x in parse_quotes(quotes_raw):
+            quotes[x.get('symbol', '')] = x
+        result['fundFlowTop10'] = []
+        for x in data[:10]:
+            q = quotes.get(x['代码'], {})
+            result['fundFlowTop10'].append({
+                'code': x['代码'],
+                'name': q.get('name', '') or x.get('名称', ''),
+                # fallback 数据是万元，统一转为元（与 npcs1983 一致）
+                'mainNetIn': x['MainNetIn'] * 10000,
+                'price': q.get('price'),
+                'change_percent': q.get('change_percent')
+            })
+        print(f'  -> {len(result["fundFlowTop10"])}条 (fallback)')
 
 # 3.5. 板块资金排行（流入/流出）
 print('[3.5/7] 板块排行...')

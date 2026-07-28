@@ -56,8 +56,7 @@ function fmtNum(n, decimals = 2) {
   if (n == null || isNaN(n)) return '--';
   const abs = Math.abs(n);
   if (abs >= 1e8) return (n / 1e8).toFixed(decimals) + '亿';
-  if (abs >= 1e4) return (n / 1e4).toFixed(decimals) + '万';
-  return n.toFixed(decimals);
+  return (n / 1e8).toFixed(decimals) + '亿';
 }
 
 function fmtPrice(n) {

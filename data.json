@@ -1,7 +1,35 @@
 {
-  "_updated": "2026-07-28T16:55:57.089070",
+  "_updated": "2026-07-28T17:21:27.903843",
   "_date": "2026/07/28",
-  "aIndex": [],
+  "aIndex": [
+    {
+      "code": "sh000001",
+      "name": "上证指数",
+      "price": 3813.31,
+      "prev_close": 3858.25,
+      "change": -44.94,
+      "change_percent": -1.16,
+      "time": "2026-07-28"
+    },
+    {
+      "code": "sz399001",
+      "name": "深证成指",
+      "price": 13509.68,
+      "prev_close": 14148.73,
+      "change": -639.05,
+      "change_percent": -4.52,
+      "time": "2026-07-28"
+    },
+    {
+      "code": "sz399006",
+      "name": "创业板指",
+      "price": 3327.03,
+      "prev_close": 3590.79,
+      "change": -263.76,
+      "change_percent": -7.35,
+      "time": "2026-07-28"
+    }
+  ],
   "marketBreadth": {
     "up": 2603,
     "down": 2769,
@@ -267,45 +295,100 @@
   "usIndex": [
     {
       "code": "usDJI",
-      "name": "",
+      "name": "道琼斯工业",
       "price": 52210.08,
       "change_percent": 0.51,
       "time": "2026-07-27"
     },
     {
       "code": "usIXIC",
-      "name": "",
+      "name": "纳斯达克",
       "price": 24932.08,
       "change_percent": -0.18,
       "time": "2026-07-27"
     },
     {
       "code": "usINX",
-      "name": "",
+      "name": "标普500",
       "price": 7413.18,
       "change_percent": 0.02,
       "time": "2026-07-27"
     },
     {
       "code": "usNDX",
-      "name": "",
+      "name": "纳斯达克100",
       "price": 28039.21,
       "change_percent": -0.32,
       "time": "2026-07-27"
     }
   ],
-  "magnificent7": [],
+  "magnificent7": [
+    {
+      "code": "usAAPL.OQ",
+      "name": "苹果",
+      "price": 336.91,
+      "change_percent": 1.17
+    },
+    {
+      "code": "usMSFT.OQ",
+      "name": "微软",
+      "price": 389.1,
+      "change_percent": 1.94
+    },
+    {
+      "code": "usNVDA.OQ",
+      "name": "英伟达",
+      "price": 196.51,
+      "change_percent": -4.99
+    },
+    {
+      "code": "usGOOGL.OQ",
+      "name": "谷歌",
+      "price": 326.56,
+      "change_percent": 2.13
+    },
+    {
+      "code": "usAMZN.OQ",
+      "name": "亚马逊",
+      "price": 231.39,
+      "change_percent": -0.31
+    },
+    {
+      "code": "usMETA.OQ",
+      "name": "Meta",
+      "price": 593.87,
+      "change_percent": -0.22
+    },
+    {
+      "code": "usTSLA.OQ",
+      "name": "特斯拉",
+      "price": 309.22,
+      "change_percent": -1.22
+    }
+  ],
   "chipStocks": [
     {
+      "code": "usMU.OQ",
+      "name": "美光科技",
+      "price": 900.2,
+      "change_percent": -2.25
+    },
+    {
+      "code": "usSNDK.OQ",
+      "name": "闪迪",
+      "price": 1278.23,
+      "change_percent": -11.02
+    },
+    {
       "code": "ks005930",
-      "name": "Samsung Electronics Co., Ltd.",
+      "name": "三星电子",
       "price": 220000,
       "change_percent": -13.385826771653544,
       "market": "kr"
     },
     {
       "code": "ks000660",
-      "name": "SK hynix Inc.",
+      "name": "SK海力士",
       "price": 1550000,
       "change_percent": -14.647577092511014,
       "market": "kr"
@@ -373,21 +456,9 @@
       "images": []
     },
     {
-      "news_id": "SN2026072807473394bc5a4a",
-      "news_title": "光刻机板块升温，多股直线封涨停！国产替代红利持续释放？",
-      "rank": "6",
-      "publish_time": 1785209361,
-      "source": "腾讯自选股综合",
-      "news_type": 1,
-      "cont_type": 0,
-      "property": 33816576,
-      "has_video": 0,
-      "images": []
-    },
-    {
       "news_id": "SN202607281407279721c5e7",
       "news_title": "韩国KOSPI指数跌幅扩大至11%",
-      "rank": "7",
+      "rank": "6",
       "publish_time": 1785218989,
       "source": "腾讯自选股",
       "news_type": 1,
@@ -397,10 +468,10 @@
       "images": []
     },
     {
-      "news_id": "SN2026072811085398a61e7d",
-      "news_title": "PCB概念全线重挫！AI资本开支预期已现裂痕，行业分化即将加速",
-      "rank": "8",
-      "publish_time": 1785208205,
+      "news_id": "SN2026072807473394bc5a4a",
+      "news_title": "光刻机板块升温，多股直线封涨停！国产替代红利持续释放？",
+      "rank": "7",
+      "publish_time": 1785209361,
       "source": "腾讯自选股综合",
       "news_type": 1,
       "cont_type": 0,
@@ -411,7 +482,7 @@
     {
       "news_id": "SN2026072814371998a66066",
       "news_title": "沪指收跌1.16%：存储概念领跌，白酒、银行等板块逆势活跃",
-      "rank": "9",
+      "rank": "8",
       "publish_time": 1785222142,
       "source": "腾讯自选股",
       "news_type": 1,
@@ -421,14 +492,26 @@
       "images": []
     },
     {
-      "news_id": "SN20260728130052a6e9108f",
-      "news_title": "商务部发布《关于所谓“产能过剩”问题的中方立场》",
-      "rank": "10",
-      "publish_time": 1785214871,
-      "source": "新华社",
+      "news_id": "SN2026072811085398a61e7d",
+      "news_title": "PCB概念全线重挫！AI资本开支预期已现裂痕，行业分化即将加速",
+      "rank": "9",
+      "publish_time": 1785208205,
+      "source": "腾讯自选股综合",
       "news_type": 1,
       "cont_type": 0,
-      "property": 262144,
+      "property": 33816576,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260728141004b6758684",
+      "news_title": "A股德明利盘中再度触及跌停",
+      "rank": "10",
+      "publish_time": 1785219212,
+      "source": "腾讯自选股",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 264192,
       "has_video": 0,
       "images": []
     }

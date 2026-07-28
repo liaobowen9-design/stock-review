@@ -11,7 +11,7 @@
   <header class="header">
     <div class="header-left">
       <h1 class="logo">📊 A股复盘</h1>
-      <span class="date-tag">2026-07-27 周一</span>
+      <span class="date-tag" id="headerDate">加载中...</span>
     </div>
     <div class="header-right">
       <span class="data-source">数据来源：腾讯自选股 | 东方财富</span>
@@ -31,7 +31,7 @@
     <!-- 第二行：A股市场量能 -->
     <section class="card card-volume">
       <h2 class="card-title">📊 A股市场量能</h2>
-      <span class="update-time">更新于 2026-07-24 收盘</span>
+      <span class="update-time" id="volumeUpdateTime">更新于 加载中...</span>
       <div class="volume-grid" id="volumeGrid"></div>
     </section>
 
@@ -45,7 +45,7 @@
     <!-- 第四行：主力资金净流入TOP10 -->
     <section class="card card-fund-flow">
       <h2 class="card-title">💰 主力资金净流入 TOP10</h2>
-      <span class="update-time">更新于 2026-07-24 收盘</span>
+      <span class="update-time" id="fundFlowUpdateTime">更新于 加载中...</span>
       <div class="table-wrap">
         <table id="fundFlowTop10">
           <thead>
@@ -59,7 +59,7 @@
     <!-- 第五行：板块资金流向 -->
     <div class="row-two-col">
       <section class="card card-sector-inflow">
-        <h2 class="card-title">📈 板块资金流入 TOP5</h2>
+        <h2 class="card-title">📈 板块资金流入 TOP</h2>
         <div class="table-wrap">
           <table id="sectorInflow">
             <thead>
@@ -70,11 +70,11 @@
         </div>
       </section>
       <section class="card card-sector-outflow">
-        <h2 class="card-title">📉 板块资金流出 TOP5</h2>
+        <h2 class="card-title">📊 行业涨幅 TOP5</h2>
         <div class="table-wrap">
           <table id="sectorOutflow">
             <thead>
-              <tr><th>板块</th><th>涨跌幅</th><th>主力净流出(万)</th><th>5日净流出(万)</th><th>涨跌比</th></tr>
+              <tr><th>板块</th><th>涨跌幅</th><th>5日涨跌</th><th>20日涨跌</th><th>领涨股</th></tr>
             </thead>
             <tbody></tbody>
           </table>

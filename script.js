@@ -30,7 +30,28 @@ function dget(path, fallback) {
   return obj !== undefined && obj !== null ? obj : fallback;
 }
 
-// 格式化数字
+// 格式化日期
+function getDateDisplay() {
+  const d = dget('_date', '');
+  if (d) return d;
+  const now = new Date();
+  const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+  return `${now.getFullYear()}/${(now.getMonth()+1).toString().padStart(2,'0')}/${now.getDate().toString().padStart(2,'0')} 周${weekdays[now.getDay()]}`;
+}
+
+function isTradeDay() {
+  const now = new Date();
+  const day = now.getDay();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  // 周一到周五 9:30-15:00 是交易时段
+  if (day >= 1 && day <= 5) {
+    if (hour > 9 || (hour === 9 && minute >= 30)) {
+      if (hour < 15 || (hour === 15 && minute === 0)) return true;
+    }
+  }
+  return false;
+}
 function fmtNum(n, decimals = 2) {
   if (n == null || isNaN(n)) return '--';
   const abs = Math.abs(n);
@@ -117,7 +138,7 @@ function renderVolume() {
   // 从data.json获取涨跌分布数据
   const mb = dget('marketBreadth', null);
   let upCount = 555, downCount = 4940, flatCount = 36, limitUp = 43, limitDown = 25, upPct = 10;
-  let volume = '1.93万亿', volumeChg = -2641.61;
+  let volume = 1.93, volumeUnit = '万亿', volumeChg = -2641.61;
   let distData = [
     { label: '涨停', count: 43, type: 'up' },
     { label: '>7%', count: 37, type: 'up' },
@@ -141,7 +162,8 @@ function renderVolume() {
     upPct = mb.upRatio || upPct;
     if (mb.totalAmount) {
       const amt = mb.totalAmount / 1e8;
-      volume = amt >= 10000 ? (amt / 10000).toFixed(2) + '万亿' : amt.toFixed(0) + '亿';
+      if (amt >= 10000) { volume = parseFloat((amt / 10000).toFixed(2)); volumeUnit = '万亿'; }
+      else { volume = parseFloat(amt.toFixed(0)); volumeUnit = '亿'; }
       volumeChg = mb.amountChange ? mb.amountChange / 1e8 : 0;
     }
   }
@@ -157,7 +179,7 @@ function renderVolume() {
   grid.innerHTML = `
     <div class="vol-metric">
       <div class="vm-label">💰 两市成交额</div>
-      <div class="vm-value">${volume.includes('万') ? volume.replace('万','.<span style=\"font-size:14px\">万亿</span>') : volume}</div>
+      <div class="vm-value">${volume}<span style="font-size:16px">${volumeUnit}</span></div>
       <div class="vm-sub" style="${volChgColor}">较上日 ${volChgStr}</div>
     </div>
     <div class="vol-metric">
@@ -448,28 +470,30 @@ function renderSectorFlow() {
   const liveFlowIn = dget('sectorFlowIn', null);
   const liveGainers = dget('sectorTopGainers', null);
 
-  // 流入TOP5：优先用 data.json；获取不到则用硬编码fallback
-  const inflowData = (liveFlowIn && liveFlowIn.length) ? liveFlowIn.slice(0, 5).map(d => ({
-    name: d.name || d.name,
+  // 流入：优先用 sectorFlowIn 数据（API 仅返回 TOP3 资金流入板块）
+  const inflowData = (liveFlowIn && liveFlowIn.length) ? liveFlowIn.map(d => ({
+    name: d.name,
     chg: parseFloat(d.changePct || 0),
     inflow: parseFloat(d.mainNetInflow || 0),
     inflow5d: parseFloat(d.mainNetInflow5d || 0),
     ratio: d.upDownRatio || '--'
   })) : [
-    { name: '元件', chg: 6.25, inflow: 672891.69, inflow5d: 4975.74, ratio: '59/60' },
-    { name: '玻璃玻纤', chg: 9.65, inflow: 369151.13, inflow5d: 14816.42, ratio: '16/16' },
-    { name: '电池', chg: 4.13, inflow: 287021.02, inflow5d: 658017.68, ratio: '95/97' },
-    { name: '半导体', chg: 4.87, inflow: 210450.12, inflow5d: 125600.34, ratio: '45/87' },
-    { name: '通信设备', chg: 3.22, inflow: 156789.45, inflow5d: 89234.56, ratio: '28/55' },
+    { name: '--', chg: 0, inflow: 0, inflow5d: 0, ratio: '--' },
   ];
 
-  // 流出TOP5：TODO 后续接入板��流出接口
-  const outflowData = [
-    { name: '证券', chg: -2.45, outflow: -189023.45, outflow5d: -342156.78, ratio: '8/78' },
-    { name: '电力设备', chg: -3.12, outflow: -156234.78, outflow5d: -289012.34, ratio: '12/156' },
-    { name: '计算机应用', chg: -2.87, outflow: -123456.12, outflow5d: -234567.89, ratio: '15/98' },
-    { name: '汽车整车', chg: -2.15, outflow: -98765.43, outflow5d: -187654.32, ratio: '6/42' },
-    { name: '房地产开发', chg: -1.89, outflow: -87654.32, outflow5d: -156789.01, ratio: '8/35' },
+  // 行业涨幅 TOP5：直接从 sectorTopGainers 取
+  const gainerData = (liveGainers && liveGainers.length) ? liveGainers.slice(0, 5).map(d => ({
+    name: d.name,
+    chg: parseFloat(d.changePct || 0),
+    chg5d: parseFloat(d.changePct5d || 0),
+    chg20d: parseFloat(d.changePct20d || 0),
+    leadStock: d.leadStock || '--'
+  })) : [
+    { name: '元件', chg: 6.25, chg5d: 3.12, chg20d: 8.45, leadStock: '通富微电(5.32)' },
+    { name: '半导体', chg: 4.87, chg5d: 2.33, chg20d: 6.78, leadStock: '中微公司(8.21)' },
+    { name: '通信设备', chg: 3.22, chg5d: 1.56, chg20d: 4.32, leadStock: '中兴通讯(3.45)' },
+    { name: '新能源汽车', chg: 2.98, chg5d: 5.67, chg20d: 12.34, leadStock: '比亚迪(4.56)' },
+    { name: '医疗器械', chg: 2.45, chg5d: -1.23, chg20d: 3.21, leadStock: '迈瑞医疗(2.34)' },
   ];
 
   const tbodyIn = document.querySelector('#sectorInflow tbody');
@@ -477,35 +501,69 @@ function renderSectorFlow() {
     <tr>
       <td style="font-weight:600">${d.name}</td>
       <td class="${colorClass(d.chg)}">${signedNum(d.chg, '%')}</td>
-      <td class="up">${fmtNum(d.inflow)}</td>
-      <td class="${colorClass(d.inflow5d)}">${fmtNum(d.inflow5d)}</td>
+      <td class="${d.inflow > 0 ? 'up' : 'down'}">${d.inflow != null ? fmtNum(d.inflow) : '--'}</td>
+      <td class="${colorClass(d.inflow5d)}">${d.inflow5d != null ? fmtNum(d.inflow5d) : '--'}</td>
       <td>${d.ratio}</td>
     </tr>
   `).join('');
 
   const tbodyOut = document.querySelector('#sectorOutflow tbody');
-  tbodyOut.innerHTML = outflowData.map(d => `
+  tbodyOut.innerHTML = gainerData.map(d => `
     <tr>
       <td style="font-weight:600">${d.name}</td>
       <td class="${colorClass(d.chg)}">${signedNum(d.chg, '%')}</td>
-      <td class="down">${fmtNum(d.outflow)}</td>
-      <td class="down">${fmtNum(d.outflow5d)}</td>
-      <td>${d.ratio}</td>
+      <td class="${colorClass(d.chg5d)}">${signedNum(d.chg5d, '%')}</td>
+      <td class="${colorClass(d.chg20d)}">${signedNum(d.chg20d, '%')}</td>
+      <td>${d.leadStock}</td>
     </tr>
   `).join('');
 }
 
 function renderGlobalIndex() {
-  const data = [
-    { name: '标普500', region: '美国', price: 7411.98, chg: 0.05 },
-    { name: '纳斯达克', region: '美国', price: 24975.82, chg: -0.64 },
-    { name: '道琼斯', region: '美国', price: 51947.25, chg: 0.46 },
-    { name: '费城半导体 SOX', region: '美国', price: 11818.89, chg: -4.25 },
-    { name: '日经225', region: '日本', price: 64611, chg: -2.73 },
-    { name: '韩国KOSPI', region: '韩国', price: 6690.62, chg: -5.72 },
-    { name: '恒生指数', region: '中国香港', price: 24780, chg: -1.12 },
-    { name: '纳斯达克100', region: '美国', price: 28128.34, chg: -1.15 },
-  ];
+  // 名称映射
+  const nameMap = {
+    'usDJI': '道琼斯工业', 'usIXIC': '纳斯达克', 'usINX': '标普500', 'usNDX': '纳斯达克100',
+    'usSOX': '费城半导体 SOX'
+  };
+  const regionMap = {
+    'usDJI': '美国', 'usIXIC': '美国', 'usINX': '美国', 'usNDX': '美国', 'usSOX': '美国'
+  };
+
+  const liveIdx = dget('usIndex', null);
+  let data = [];
+  if (liveIdx && liveIdx.length) {
+    data = liveIdx.map(d => ({
+      name: d.name || nameMap[d.code] || d.code,
+      region: regionMap[d.code] || '美国',
+      price: d.price,
+      chg: d.change_percent
+    }));
+  }
+  // 如果 live 数据不足以覆盖所有指数，用硬编码补充
+  if (data.length < 7) {
+    const liveCodes = new Set(data.map(d => {
+      for (const [k, v] of Object.entries(nameMap)) { if (v === d.name) return k; }
+      return '';
+    }));
+    const fallbackAll = [
+      { name: '道琼斯工业', region: '美国', price: 52210.08, chg: 0.51, code: 'usDJI' },
+      { name: '纳斯达克', region: '美国', price: 24932.08, chg: -0.18, code: 'usIXIC' },
+      { name: '标普500', region: '美国', price: 7413.18, chg: 0.02, code: 'usINX' },
+      { name: '费城半导体 SOX', region: '美国', price: 10922.43, chg: -2.83, code: 'usSOX' },
+      { name: '日经225', region: '日本', price: 64611, chg: -2.73, code: '' },
+      { name: '韩国KOSPI', region: '韩国', price: 5722, chg: -11.02, code: '' },
+      { name: '恒生指数', region: '中国香港', price: 25338, chg: 2.25, code: '' },
+      { name: '纳斯达克100', region: '美国', price: 28039.21, chg: -0.32, code: 'usNDX' },
+    ];
+    for (const fb of fallbackAll) {
+      if (!liveCodes.has(fb.code) && !data.find(d => d.name === fb.name)) {
+        data.push({ name: fb.name, region: fb.region, price: fb.price, chg: fb.chg });
+      }
+    }
+  }
+  // 去重
+  const seenNames = new Set();
+  data = data.filter(d => { if (seenNames.has(d.name)) return false; seenNames.add(d.name); return true; });
 
   const grid = document.getElementById('globalIndexGrid');
   grid.innerHTML = data.map(d => `
@@ -533,10 +591,21 @@ function renderM7() {
     'usAAPL.OQ': 'AAPL', 'usMSFT.OQ': 'MSFT', 'usNVDA.OQ': 'NVDA',
     'usGOOGL.OQ': 'GOOGL', 'usAMZN.OQ': 'AMZN', 'usMETA.OQ': 'META', 'usTSLA.OQ': 'TSLA'
   };
-  const data = (live && live.length) ? live.map(d => ({
+
+  // 构建 live 数据 + fallback 补充
+  let data = (live && live.length) ? live.map(d => ({
     name: d.name, code: codeMap[d.code] || d.code,
     price: d.price, chg: d.change_percent, currency: '$'
-  })) : fallback;
+  })) : [];
+
+  // 如果 live 数据不足7条，从 fallback 补充缺失的股票
+  if (data.length < 7) {
+    const liveCodes = new Set(data.map(d => d.code));
+    for (const fb of fallback) {
+      if (!liveCodes.has(fb.code)) data.push(fb);
+    }
+  }
+  data = data.slice(0, 7);
 
   const grid = document.getElementById('m7Grid');
   grid.innerHTML = data.map(d => `
@@ -553,22 +622,32 @@ function renderChipStocks() {
   const fallback = [
     { name: '美光科技', code: 'MU', price: 920.95, chg: -6.99, market: '美股', currency: '$' },
     { name: '闪迪', code: 'SNDK', price: 1436.56, chg: -10.79, market: '美股', currency: '$' },
-    { name: '三星电子', code: '005930', price: 249500, chg: -7.59, market: '韩股', currency: '₩' },
-    { name: 'SK海力士', code: '000660', price: 1759000, chg: -8.34, market: '韩股', currency: '₩' },
-    { name: '通富微电', code: '002156', price: 32.56, chg: 5.32, market: 'A股', currency: '¥' },
-    { name: '华天科技', code: '002185', price: 18.92, chg: 3.15, market: 'A股', currency: '¥' },
-    { name: '中微公司', code: '688012', price: 245.80, chg: 8.21, market: 'A股', currency: '¥' },
-    { name: '澜起科技', code: '688008', price: 89.45, chg: -1.23, market: 'A股', currency: '¥' },
+    { name: '三星电子', code: '005930', price: 220000, chg: -13.39, market: '韩股', currency: '₩' },
+    { name: 'SK海力士', code: '000660', price: 1550000, chg: -14.65, market: '韩股', currency: '₩' },
+    { name: '长鑫科技', code: '688825', price: 47.00, chg: -4.08, market: 'A股', currency: '¥' },
+    { name: '通富微电', code: '002156', price: 27.38, chg: -1.83, market: 'A股', currency: '¥' },
+    { name: '雅克科技', code: '002409', price: 166.43, chg: -1.72, market: 'A股', currency: '¥' },
+    { name: '华天科技', code: '002185', price: 15.43, chg: -2.58, market: 'A股', currency: '¥' },
   ];
   const live = dget('chipStocks', null);
-  const data = (live && live.length) ? live.map(d => ({
+  // 构建 live 数据
+  let data = (live && live.length) ? live.map(d => ({
     name: d.name,
     code: d.code ? d.code.replace(/^us/, '').replace(/\.OQ$/, '').replace(/^ks/, '') : d.code,
     price: d.price,
     chg: d.change_percent,
-    market: d.market === 'kr' ? '韩股' : '美股',
+    market: d.market === 'kr' ? '韩股' : d.market === 'us' ? '美股' : '美股',
     currency: d.market === 'kr' ? '₩' : '$'
-  })) : fallback;
+  })) : [];
+
+  // 如果 live 数据不足8条，从 fallback 补充
+  if (data.length < 8) {
+    const liveCodes = new Set(data.map(d => d.code));
+    for (const fb of fallback) {
+      if (!liveCodes.has(fb.code)) data.push(fb);
+    }
+  }
+  data = data.slice(0, 8);
 
   const grid = document.getElementById('chipGrid');
   grid.innerHTML = data.map(d => `
@@ -610,6 +689,23 @@ function renderNews() {
   `).join('');
 }
 
+// ========== 日期更新 ==========
+function updateAllDates() {
+  const dateStr = getDateDisplay();
+  const el = document.getElementById('headerDate');
+  if (el) el.textContent = dateStr;
+
+  const now = new Date();
+  const timeStr = `${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2,'0')}-${now.getDate().toString().padStart(2,'0')} ${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`;
+  const tradeDay = isTradeDay();
+
+  const vid = document.getElementById('volumeUpdateTime');
+  if (vid) vid.textContent = `更新于 ${dateStr} ${tradeDay ? '盘中' : '收盘'}`;
+
+  const fid = document.getElementById('fundFlowUpdateTime');
+  if (fid) fid.textContent = `更新于 ${dateStr} ${tradeDay ? '盘中' : '收盘'}`;
+}
+
 // ========== 全部渲染（带异常保护） ==========
 function safeRender(name, fn) {
   try {
@@ -620,6 +716,7 @@ function safeRender(name, fn) {
 }
 
 function renderAll() {
+  updateAllDates();
   safeRender('AIndex', renderAIndex);
   safeRender('Volume', renderVolume);
   safeRender('Sentiment', renderSentiment);

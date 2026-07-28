@@ -113,15 +113,29 @@ if raw:
         result['sectorFlowIn'] = sections[2]  # 资金流入TOP
     print(f'  板块涨幅: {len(result.get("sectorTopGainers", []))}条 | 资金流入: {len(result.get("sectorFlowIn", []))}条')
 
-# 4. 美股指数七姐妹
+# 4. 美股指数（含费城半导体SOX）+ 七姐妹
 print('[4/7] 美股数据...')
 result['usIndex'] = []
 result['magnificent7'] = []
-raw = run(WD, 'quote', 'usDJI,usIXIC,usINX,usNDX', '--raw')
+US_INDEX_NAMES = {
+    'usDJI': '道琼斯工业', 'usIXIC': '纳斯达克',
+    'usINX': '标普500', 'usNDX': '纳斯达克100', 'usSOX': '费城半导体SOX',
+}
+M7_NAMES = {
+    'usAAPL.OQ': '苹果', 'usMSFT.OQ': '微软', 'usNVDA.OQ': '英伟达',
+    'usGOOGL.OQ': '谷歌', 'usAMZN.OQ': '亚马逊', 'usMETA.OQ': 'Meta', 'usTSLA.OQ': '特斯拉',
+}
+CHIP_NAMES = {
+    'usMU.OQ': '美光科技', 'usSNDK.OQ': '闪迪',
+    'ks005930': '三星电子', 'ks000660': 'SK海力士',
+}
+raw = run(WD, 'quote', 'usDJI,usIXIC,usINX,usNDX,usSOX', '--raw')
 for x in parse_quotes(raw):
     if x.get('price'):
+        sym = x.get('symbol', '')
         result['usIndex'].append({
-            'code': x.get('symbol',''), 'name': x.get('name', x.get('symbol','')),
+            'code': sym,
+            'name': US_INDEX_NAMES.get(sym, x.get('name', sym)),
             'price': x.get('price'), 'change_percent': x.get('change_percent'),
             'time': x.get('time','')
         })
@@ -130,30 +144,43 @@ print(f'  美股指数: {len(result["usIndex"])}条')
 raw = run(WD, 'quote', 'usAAPL.OQ,usMSFT.OQ,usNVDA.OQ,usGOOGL.OQ,usAMZN.OQ,usMETA.OQ,usTSLA.OQ', '--raw')
 for x in parse_quotes(raw):
     if x.get('price'):
+        sym = x.get('symbol', '')
         result['magnificent7'].append({
-            'code': x.get('symbol',''), 'name': x.get('name', x.get('symbol','')),
+            'code': sym,
+            'name': M7_NAMES.get(sym, x.get('name', sym)),
             'price': x.get('price'), 'change_percent': x.get('change_percent')
         })
 print(f'  七姐妹: {len(result["magnificent7"])}条')
 
-# 5. 芯片股（美股+韩股）
+# 5. 芯片股（美股+韩股+A股）
 print('[5/7] 芯片股...')
 result['chipStocks'] = []
 raw = run(WD, 'quote', 'usMU.OQ,usSNDK.OQ', '--raw')
 for x in parse_quotes(raw):
     if x.get('price'):
+        sym = x.get('symbol', '')
+        pct = x.get('change_percent')
+        if isinstance(pct, (int, float)):
+            pct = round(pct, 2)
         result['chipStocks'].append({
-            'code': x.get('symbol',''), 'name': x.get('name', x.get('symbol','')),
-            'price': x.get('price'), 'change_percent': x.get('change_percent')
+            'code': sym,
+            'name': CHIP_NAMES.get(sym, x.get('name', sym)),
+            'price': x.get('price'), 'change_percent': pct,
+            'market': 'us'
         })
 
 raw = run(WD, 'quote', 'ks005930,ks000660', '--raw')
 for x in parse_quotes(raw):
     if x.get('price'):
+        sym = x.get('symbol', x.get('code', ''))
+        pct = x.get('change_percent', x.get('changePct', 0))
+        if isinstance(pct, (int, float)):
+            pct = round(pct, 2)
         result['chipStocks'].append({
-            'code': x.get('symbol', x.get('code','')), 'name': x.get('name',''),
+            'code': sym,
+            'name': CHIP_NAMES.get(sym, x.get('name', '')),
             'price': x.get('price'),
-            'change_percent': x.get('change_percent', x.get('changePct', 0)),
+            'change_percent': pct,
             'market': 'kr'
         })
 print(f'  -> {len(result["chipStocks"])}条')

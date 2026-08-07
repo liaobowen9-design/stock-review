@@ -1,419 +1,407 @@
 {
-  "_updated": "2026-08-06T17:51:52.218802",
-  "_date": "2026/08/06",
+  "_updated": "2026-08-07T18:07:07.358371",
+  "_date": "2026/08/07",
   "aIndex": [
     {
       "code": "sh000001",
       "name": "上证指数",
-      "price": 3900.35,
-      "prev_close": 3878.43,
-      "change": 21.92,
-      "change_percent": 0.57,
-      "time": "2026-08-06"
+      "price": 3940.04,
+      "prev_close": 3900.35,
+      "change": 39.69,
+      "change_percent": 1.02,
+      "time": "2026-08-07"
     },
     {
       "code": "sz399001",
       "name": "深证成指",
-      "price": 14110.12,
-      "prev_close": 14144.2,
-      "change": -34.08,
-      "change_percent": -0.24,
-      "time": "2026-08-06"
+      "price": 14311.01,
+      "prev_close": 14110.12,
+      "change": 200.89,
+      "change_percent": 1.42,
+      "time": "2026-08-07"
     },
     {
       "code": "sz399006",
       "name": "创业板指",
-      "price": 3515.56,
-      "prev_close": 3535.14,
-      "change": -19.58,
-      "change_percent": -0.55,
-      "time": "2026-08-06"
+      "price": 3563.12,
+      "prev_close": 3515.56,
+      "change": 47.56,
+      "change_percent": 1.35,
+      "time": "2026-08-07"
     }
   ],
   "marketBreadth": {
-    "up": 2789,
-    "down": 2590,
-    "flat": 159,
-    "limitUp": 83,
-    "limitDown": 1,
-    "upRatio": 50,
-    "totalAmount": 2528781475662.4355,
-    "amountChange": -130853026605.36426,
+    "up": 2856,
+    "down": 2536,
+    "flat": 147,
+    "limitUp": 75,
+    "limitDown": 4,
+    "upRatio": 51,
+    "totalAmount": 2664419750880.461,
+    "amountChange": 135638275237.04102,
     "distribution": [
       {
         "range": "涨停",
-        "count": 83,
+        "count": 75,
         "direction": "up"
       },
       {
         "range": ">7%",
-        "count": 102,
+        "count": 206,
         "direction": "up"
       },
       {
         "range": "7~5%",
-        "count": 134,
+        "count": 213,
         "direction": "up"
       },
       {
         "range": "5~2%",
-        "count": 743,
+        "count": 807,
         "direction": "up"
       },
       {
         "range": "2~0%",
-        "count": 1727,
+        "count": 1555,
         "direction": "up"
       },
       {
         "range": "平",
-        "count": 159,
+        "count": 147,
         "direction": "flat"
       },
       {
         "range": "0~2%",
-        "count": 2089,
+        "count": 2119,
         "direction": "down"
       },
       {
         "range": "2~5%",
-        "count": 452,
+        "count": 365,
         "direction": "down"
       },
       {
         "range": "5~7%",
-        "count": 32,
+        "count": 26,
         "direction": "down"
       },
       {
         "range": "7%<",
-        "count": 16,
+        "count": 22,
         "direction": "down"
       },
       {
         "range": "跌停",
-        "count": 1,
+        "count": 4,
         "direction": "down"
       }
     ]
   },
   "fundFlowTop10": [
     {
-      "code": "600584",
-      "name": "长电科技",
-      "mainNetIn": 1793787456.0,
-      "price": 75.24,
-      "change_percent": 9.09
-    },
-    {
-      "code": "603228",
-      "name": "景旺电子",
-      "mainNetIn": 1036349744.0,
-      "price": 86.32,
+      "code": "002281",
+      "name": "光迅科技",
+      "mainNetIn": 2194616592.0,
+      "price": 193.04,
       "change_percent": 10.0
     },
     {
-      "code": "300394",
-      "name": "天孚通信",
-      "mainNetIn": 1101545472.0,
-      "price": 225.0,
-      "change_percent": 3.76
-    },
-    {
-      "code": "600601",
-      "name": "方正科技",
-      "mainNetIn": 972067248.0,
-      "price": 11.7,
-      "change_percent": 9.96
-    },
-    {
-      "code": "600206",
-      "name": "有研新材",
-      "mainNetIn": 586547632.0,
-      "price": 43.79,
+      "code": "600183",
+      "name": "生益科技",
+      "mainNetIn": 1917070176.0,
+      "price": 139.98,
       "change_percent": 10.0
     },
     {
-      "code": "603629",
-      "name": "利通电子",
-      "mainNetIn": 84429424.0,
-      "price": 121.89,
-      "change_percent": 8.2
+      "code": "300476",
+      "name": "胜宏科技",
+      "mainNetIn": 1589553152.0,
+      "price": 280.01,
+      "change_percent": 11.94
     },
     {
-      "code": "002407",
-      "name": "多氟多",
-      "mainNetIn": 547671296.0,
-      "price": 36.09,
+      "code": "603986",
+      "name": "兆易创新",
+      "mainNetIn": 1971142400.0,
+      "price": 416.97,
+      "change_percent": 8.3
+    },
+    {
+      "code": "301217",
+      "name": "铜冠铜箔",
+      "mainNetIn": 1447407840.0,
+      "price": 115.71,
+      "change_percent": 16.88
+    },
+    {
+      "code": "000831",
+      "name": "中国稀土",
+      "mainNetIn": 1000648016.0,
+      "price": 57.19,
       "change_percent": 10.0
+    },
+    {
+      "code": "600664",
+      "name": "哈药股份",
+      "mainNetIn": 874565974.0,
+      "price": 6.84,
+      "change_percent": 9.97
+    },
+    {
+      "code": "600176",
+      "name": "中国巨石",
+      "mainNetIn": 1100890768.0,
+      "price": 44.25,
+      "change_percent": 8.51
+    },
+    {
+      "code": "600276",
+      "name": "恒瑞医药",
+      "mainNetIn": 899883536.0,
+      "price": 54.59,
+      "change_percent": 4.76
     },
     {
       "code": "688256",
       "name": "寒武纪",
-      "mainNetIn": 99005952.0,
-      "price": 1163.0,
-      "change_percent": 2.3
-    },
-    {
-      "code": "002428",
-      "name": "云南锗业",
-      "mainNetIn": 462167328.0,
-      "price": 90.98,
-      "change_percent": 10.0
-    },
-    {
-      "code": "601678",
-      "name": "滨化股份",
-      "mainNetIn": 418131072.0,
-      "price": 7.28,
-      "change_percent": 9.97
+      "mainNetIn": 116804864.0,
+      "price": 1199.0,
+      "change_percent": 2.64
     }
   ],
   "sectorTopGainers": [
     {
-      "name": "电子化学品Ⅱ",
-      "changePct": "4.73",
-      "turnoverRate": "9.17",
-      "changePct5d": "17.91",
-      "changePct20d": "-26.09",
-      "leadStock": "中巨芯-U(19.99)"
-    },
-    {
-      "name": "煤炭开采",
-      "changePct": "4.56",
-      "turnoverRate": "1.76",
-      "changePct5d": "1.54",
-      "changePct20d": "9.15",
-      "leadStock": "昊华能源(10.03)"
+      "name": "医疗服务",
+      "changePct": "8.40",
+      "turnoverRate": "3.99",
+      "changePct5d": "15.99",
+      "changePct20d": "17.60",
+      "leadStock": "博腾股份(20.02)"
     },
     {
       "name": "玻璃玻纤",
-      "changePct": "3.85",
-      "turnoverRate": "5.83",
-      "changePct5d": "12.71",
-      "changePct20d": "-24.89",
-      "leadStock": "宏和科技(7.70)"
+      "changePct": "7.11",
+      "turnoverRate": "6.22",
+      "changePct5d": "18.31",
+      "changePct20d": "-16.28",
+      "leadStock": "中材科技(9.78)"
+    },
+    {
+      "name": "元件",
+      "changePct": "6.74",
+      "turnoverRate": "8.39",
+      "changePct5d": "23.95",
+      "changePct20d": "-7.90",
+      "leadStock": "一博科技(20.00)"
+    },
+    {
+      "name": "生物制品",
+      "changePct": "6.06",
+      "turnoverRate": "2.50",
+      "changePct5d": "6.51",
+      "changePct20d": "3.96",
+      "leadStock": "近岸蛋白(20.01)"
     },
     {
       "name": "非金属材料Ⅱ",
-      "changePct": "3.19",
-      "turnoverRate": "3.83",
-      "changePct5d": "16.81",
-      "changePct20d": "-24.41",
-      "leadStock": "联瑞新材(8.82)"
+      "changePct": "5.59",
+      "turnoverRate": "3.99",
+      "changePct5d": "20.93",
+      "changePct20d": "-17.46",
+      "leadStock": "联瑞新材(11.48)"
     },
     {
-      "name": "小金属",
-      "changePct": "3.13",
-      "turnoverRate": "6.25",
-      "changePct5d": "19.07",
-      "changePct20d": "-5.56",
-      "leadStock": "云南锗业(10.00)"
-    },
-    {
-      "name": "贵金属",
-      "changePct": "2.78",
-      "turnoverRate": "5.78",
-      "changePct5d": "12.36",
-      "changePct20d": "22.62",
-      "leadStock": "西部黄金(6.00)"
+      "name": "化学制药",
+      "changePct": "5.21",
+      "turnoverRate": "3.95",
+      "changePct5d": "6.07",
+      "changePct20d": "1.83",
+      "leadStock": "贝达药业(14.37)"
     }
   ],
   "sectorConceptGainers": [
     {
-      "name": "靶材",
-      "changePct": "7.71",
-      "turnoverRate": "10.77",
-      "changePct5d": "25.86",
-      "changePct20d": "-30.52",
-      "leadStock": "欧莱新材(14.15)"
-    },
-    {
-      "name": "昨日连板",
-      "changePct": "5.93",
-      "turnoverRate": "11.98",
-      "changePct5d": "29.28",
-      "changePct20d": "59.47",
-      "leadStock": "欣天科技(19.97)"
-    },
-    {
-      "name": "电子特气",
-      "changePct": "5.78",
-      "turnoverRate": "5.92",
-      "changePct5d": "17.03",
-      "changePct20d": "-18.18",
-      "leadStock": "蜀道装备(19.99)"
-    },
-    {
-      "name": "氦气",
-      "changePct": "5.50",
-      "turnoverRate": "3.96",
-      "changePct5d": "13.41",
-      "changePct20d": "-6.33",
-      "leadStock": "蜀道装备(19.99)"
-    },
-    {
-      "name": "工业气体",
-      "changePct": "4.21",
-      "turnoverRate": "3.48",
-      "changePct5d": "12.79",
-      "changePct20d": "-12.18",
-      "leadStock": "蜀道装备(19.99)"
+      "name": "CRO",
+      "changePct": "10.63",
+      "turnoverRate": "6.82",
+      "changePct5d": "20.91",
+      "changePct20d": "12.51",
+      "leadStock": "博腾股份(20.02)"
     },
     {
       "name": "锗镓概念",
-      "changePct": "4.01",
-      "turnoverRate": "5.28",
-      "changePct5d": "27.01",
-      "changePct20d": "-3.20",
-      "leadStock": "光智科技(10.72)"
+      "changePct": "6.91",
+      "turnoverRate": "4.95",
+      "changePct5d": "28.97",
+      "changePct20d": "5.57",
+      "leadStock": "光智科技(18.81)"
+    },
+    {
+      "name": "电子布",
+      "changePct": "6.64",
+      "turnoverRate": "8.83",
+      "changePct5d": "18.62",
+      "changePct20d": "-11.79",
+      "leadStock": "中材科技(9.78)"
+    },
+    {
+      "name": "电子树脂",
+      "changePct": "6.62",
+      "turnoverRate": "6.37",
+      "changePct5d": "20.34",
+      "changePct20d": "-10.72",
+      "leadStock": "银禧科技(10.85)"
+    },
+    {
+      "name": "减肥药",
+      "changePct": "6.60",
+      "turnoverRate": "3.54",
+      "changePct5d": "11.24",
+      "changePct20d": "3.93",
+      "leadStock": "博腾股份(20.02)"
+    },
+    {
+      "name": "靶材",
+      "changePct": "6.11",
+      "turnoverRate": "10.48",
+      "changePct5d": "30.04",
+      "changePct20d": "-20.56",
+      "leadStock": "有研新材(10.00)"
     }
   ],
   "sectorFlowIn": [
     {
-      "name": "通信设备",
-      "changePct": "1.49",
-      "mainNetInflow": "259286.64",
-      "mainNetInflow5d": "3258815.55",
-      "upDownRatio": "72/85"
-    },
-    {
       "name": "元件",
-      "changePct": "2.33",
-      "mainNetInflow": "191189.34",
-      "mainNetInflow5d": "2787268.16",
-      "upDownRatio": "51/60"
+      "changePct": "6.74",
+      "mainNetInflow": "1185419.12",
+      "mainNetInflow5d": "2979623.71",
+      "upDownRatio": "57/60"
     },
     {
-      "name": "电子化学品Ⅱ",
-      "changePct": "4.73",
-      "mainNetInflow": "161344.86",
-      "mainNetInflow5d": "412611.29",
-      "upDownRatio": "34/35"
+      "name": "半导体",
+      "changePct": "3.29",
+      "mainNetInflow": "1066511.19",
+      "mainNetInflow5d": "1399616.86",
+      "upDownRatio": "170/178"
+    },
+    {
+      "name": "化学制药",
+      "changePct": "5.21",
+      "mainNetInflow": "408136.04",
+      "mainNetInflow5d": "192855.73",
+      "upDownRatio": "142/149"
     }
   ],
   "usIndex": [
     {
       "code": "usDJI",
       "name": "道琼斯工业",
-      "price": 54349.12,
-      "change_percent": 0.49,
-      "time": "2026-08-05"
+      "price": 53885.1,
+      "change_percent": -0.85,
+      "time": "2026-08-06"
     },
     {
       "code": "usIXIC",
       "name": "纳斯达克",
-      "price": 26363.44,
-      "change_percent": -0.83,
-      "time": "2026-08-05"
+      "price": 26348.35,
+      "change_percent": -0.06,
+      "time": "2026-08-06"
     },
     {
       "code": "usINX",
       "name": "标普500",
-      "price": 7723.55,
-      "change_percent": -0.17,
-      "time": "2026-08-05"
+      "price": 7709.96,
+      "change_percent": -0.18,
+      "time": "2026-08-06"
     },
     {
       "code": "usNDX",
       "name": "纳斯达克100",
-      "price": 29487.79,
-      "change_percent": -0.83,
-      "time": "2026-08-05"
+      "price": 29373.33,
+      "change_percent": -0.39,
+      "time": "2026-08-06"
     }
   ],
   "magnificent7": [
     {
       "code": "usAAPL.OQ",
       "name": "苹果",
-      "price": 311,
-      "change_percent": 0.52
+      "price": 312.41,
+      "change_percent": 0.45
     },
     {
       "code": "usMSFT.OQ",
       "name": "微软",
-      "price": 487.46,
-      "change_percent": -1.09
+      "price": 499.86,
+      "change_percent": 2.54
     },
     {
       "code": "usNVDA.OQ",
       "name": "英伟达",
-      "price": 219.22,
-      "change_percent": 3.43
+      "price": 218.99,
+      "change_percent": -0.1
     },
     {
       "code": "usGOOGL.OQ",
       "name": "谷歌",
-      "price": 362.43,
-      "change_percent": -4.03
+      "price": 357.75,
+      "change_percent": -1.29
     },
     {
       "code": "usAMZN.OQ",
       "name": "亚马逊",
-      "price": 272.65,
-      "change_percent": -1.72
+      "price": 272.26,
+      "change_percent": -0.14
     },
     {
       "code": "usMETA.OQ",
       "name": "Meta",
-      "price": 588.77,
-      "change_percent": 0.14
+      "price": 589.9,
+      "change_percent": 0.19
     },
     {
       "code": "usTSLA.OQ",
       "name": "特斯拉",
-      "price": 321.55,
-      "change_percent": -1.77
+      "price": 319.53,
+      "change_percent": -0.63
     }
   ],
   "chipStocks": [
     {
       "code": "usMU.OQ",
       "name": "美光科技",
-      "price": 893.19,
-      "change_percent": 0.06,
+      "price": 881.47,
+      "change_percent": -1.31,
       "market": "us"
     },
     {
       "code": "usSNDK.OQ",
       "name": "闪迪",
-      "price": 1350.5,
-      "change_percent": -5.4,
+      "price": 1258.58,
+      "change_percent": -6.81,
       "market": "us"
     },
     {
       "code": "ks005930",
       "name": "三星电子",
-      "price": 230500,
-      "change_percent": -6.3,
+      "price": 231000,
+      "change_percent": 0.22,
       "market": "kr"
     },
     {
       "code": "ks000660",
       "name": "SK海力士",
-      "price": 1495000,
-      "change_percent": -10.37,
+      "price": 1422000,
+      "change_percent": -4.88,
       "market": "kr"
     }
   ],
   "news": [
     {
-      "news_id": "SN2026080610210294cab408",
-      "news_title": "DeepSeek官宣大幅涨价，概念股集体飙涨，如何影响算力产业链？",
+      "news_id": "SN20260807090145a6f8c36b",
+      "news_title": "一文看市|今天要买带字母的！发生了什么？大行改口，市场风向生变",
       "rank": "1",
-      "publish_time": 1785992408,
-      "source": "腾讯自选股综合",
-      "news_type": 1,
-      "cont_type": 0,
-      "property": 33816576,
-      "has_video": 0,
-      "images": []
-    },
-    {
-      "news_id": "SN2026080609022194ca90f9",
-      "news_title": "一文看市|沪指三连阳收复3900点！行情回归平淡，核心原因有这几个",
-      "rank": "2",
-      "publish_time": 1786000458,
+      "publish_time": 1786086571,
       "source": "腾讯自选股",
       "news_type": 1,
       "cont_type": 0,
@@ -422,23 +410,11 @@
       "images": []
     },
     {
-      "news_id": "SN2026080609531898b42463",
-      "news_title": "PCB龙头5天4板！存储巨头业绩带崩韩股，A股硬件板块为何逆势抗跌？",
-      "rank": "3",
-      "publish_time": 1785992582,
-      "source": "腾讯自选股综合",
-      "news_type": 1,
-      "cont_type": 0,
-      "property": 33816576,
-      "has_video": 0,
-      "images": []
-    },
-    {
-      "news_id": "SN20260806111221972fb335",
-      "news_title": "6G概念大涨，英伟达进入电信运营商市场？究竟有何利好？",
-      "rank": "4",
-      "publish_time": 1786007062,
-      "source": "券商中国",
+      "news_id": "SN20260807125820b68589a5",
+      "news_title": "存储三巨头，明年产能已售罄",
+      "rank": "2",
+      "publish_time": 1786075039,
+      "source": "财联社",
       "news_type": 1,
       "cont_type": 0,
       "property": 33820672,
@@ -446,35 +422,23 @@
       "images": []
     },
     {
-      "news_id": "SN20260806093348a4a087b4",
-      "news_title": "金价突破4300美元！有色板块崛起 “超级资源”牛市又来了？",
-      "rank": "5",
-      "publish_time": 1785980569,
-      "source": "腾讯自选股综合",
+      "news_id": "SN20260807144059b685aa3a",
+      "news_title": "大摩Shawn Kim“空转多”：存储行情修正“接近尾声”，SK海力士EPS上调13%",
+      "rank": "3",
+      "publish_time": 1786087369,
+      "source": "华尔街见闻",
       "news_type": 1,
       "cont_type": 0,
-      "property": 33816576,
+      "property": 33820672,
       "has_video": 0,
       "images": []
     },
     {
-      "news_id": "SN20260806143505b683e3c9",
-      "news_title": "沪指涨0.56% 站上3900点",
-      "rank": "6",
-      "publish_time": 1785998127,
-      "source": "市场透视",
-      "news_type": 1,
-      "cont_type": 0,
-      "property": 262144,
-      "has_video": 0,
-      "images": []
-    },
-    {
-      "news_id": "SN20260806080751a4a06977",
-      "news_title": "闪迪、西部数据盘后直线跳水！存储芯片巨头业绩利空来袭",
-      "rank": "7",
-      "publish_time": 1785972960,
-      "source": "券商中国",
+      "news_id": "SN20260807150921b685b447",
+      "news_title": "中际旭创盘中大跳水，发生了什么？影响多大？",
+      "rank": "4",
+      "publish_time": 1786086651,
+      "source": "中国基金报",
       "news_type": 1,
       "cont_type": 0,
       "property": 33818624,
@@ -482,38 +446,74 @@
       "images": []
     },
     {
-      "news_id": "SN20260806001237b682ec07",
-      "news_title": "红包雨来了！高中签率的大肉如何兑现？8月6日曙26转债上市，中仑、先锋、派克转债打新申购",
+      "news_id": "SN20260807123941b68583c9",
+      "news_title": "高位下跌87%后，2倍做多海力士改名，投资者还能回本么？",
+      "rank": "5",
+      "publish_time": 1786078375,
+      "source": "格隆",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 33816576,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN2026080716110998b66805",
+      "news_title": "摩根大通继续加仓中际旭创H股 持股比例升至15.02%",
+      "rank": "6",
+      "publish_time": 1786093791,
+      "source": "腾讯自选股",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 262144,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN20260807160129b685ca34",
+      "news_title": "中国央行连续第21个月增持黄金",
+      "rank": "7",
+      "publish_time": 1786089744,
+      "source": "央行",
+      "news_type": 1,
+      "cont_type": 0,
+      "property": 262144,
+      "has_video": 0,
+      "images": []
+    },
+    {
+      "news_id": "SN2026080712183194cc9942",
+      "news_title": "高盛最新预测+产业涨价！PCB掀涨停潮 这些概念股业绩高增",
       "rank": "8",
-      "publish_time": 1785946200,
-      "source": "灰小财",
+      "publish_time": 1786078558,
+      "source": "东方财富研究中心",
       "news_type": 1,
       "cont_type": 0,
-      "property": 33820672,
+      "property": 33818624,
       "has_video": 0,
       "images": []
     },
     {
-      "news_id": "SN20260806151539a4a0fecc",
-      "news_title": "再遭围堵！美国拟对多晶硅产品征收15%关税，国内光伏产业链影响几何？",
+      "news_id": "SN20260807141141a6f9372a",
+      "news_title": "A股周复盘|中证1000怒涨逾8%，小盘股支棱起来了！8月新一轮主升要来了吗？",
       "rank": "9",
-      "publish_time": 1786000641,
-      "source": "腾讯自选股综合",
+      "publish_time": 1786090310,
+      "source": "腾讯自选股",
       "news_type": 1,
       "cont_type": 0,
-      "property": 33816576,
+      "property": 262144,
       "has_video": 0,
       "images": []
     },
     {
-      "news_id": "SN20260806160118b68404cf",
-      "news_title": "网信办对派拓公司在华销售产品实施网络安全审查",
+      "news_id": "SN2026080618421594cb6799",
+      "news_title": "从700W到2300W：液冷如何接住算力的\"高烧\"",
       "rank": "10",
-      "publish_time": 1786006982,
-      "source": "新华社",
+      "publish_time": 1786012734,
+      "source": "证券之星财经",
       "news_type": 1,
       "cont_type": 0,
-      "property": 33816576,
+      "property": 262144,
       "has_video": 0,
       "images": []
     }

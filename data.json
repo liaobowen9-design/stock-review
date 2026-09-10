@@ -1,236 +1,236 @@
 {
-  "_updated": "2026-08-26T22:51:11.710416",
-  "_date": "2026/08/26",
+  "_updated": "2026-09-10T17:01:23.912599",
+  "_date": "2026/09/10",
   "aIndex": [
     {
       "code": "sh000001",
       "name": "上证指数",
-      "price": 3912.5235,
-      "prev_close": 3889.4449,
-      "change": 23.08,
-      "change_percent": 0.59,
-      "time": "2026-08-26"
+      "price": 3934.4036,
+      "prev_close": 3951.5068,
+      "change": -17.1,
+      "change_percent": -0.43,
+      "time": "2026-09-10"
     },
     {
       "code": "sz399001",
       "name": "深证成指",
-      "price": 13841.327,
-      "prev_close": 13745.869,
-      "change": 95.46,
-      "change_percent": 0.69,
-      "time": "2026-08-26"
+      "price": 13617.67,
+      "prev_close": 13723.322,
+      "change": -105.65,
+      "change_percent": -0.77,
+      "time": "2026-09-10"
     },
     {
       "code": "sz399006",
       "name": "创业板指",
-      "price": 3414.883,
-      "prev_close": 3397.515,
-      "change": 17.37,
-      "change_percent": 0.51,
-      "time": "2026-08-26"
+      "price": 3338.422,
+      "prev_close": 3354.969,
+      "change": -16.55,
+      "change_percent": -0.49,
+      "time": "2026-09-10"
     }
   ],
   "marketBreadth": {
-    "up": 2760,
-    "down": 2310,
-    "flat": 139,
-    "limitUp": 56,
-    "limitDown": 2,
-    "upRatio": 52.99,
+    "up": 931,
+    "down": 4192,
+    "flat": 83,
+    "limitUp": 39,
+    "limitDown": 14,
+    "upRatio": 17.88,
     "totalAmount": 0,
     "amountChange": 0,
     "distribution": []
   },
   "fundFlowTop10": [
     {
-      "code": "603993",
-      "name": "洛阳钼业",
-      "mainNetIn": 2085000000.0,
-      "price": 19.59,
-      "change_percent": 6.35
+      "code": "300394",
+      "name": "天孚通信",
+      "mainNetIn": 1338000000.0,
+      "price": 269.0,
+      "change_percent": 4.25
     },
     {
-      "code": "300308",
-      "name": "中际旭创",
-      "mainNetIn": 2028000000.0,
-      "price": 850.9,
-      "change_percent": 0.58
+      "code": "301526",
+      "name": "国际复材",
+      "mainNetIn": 722000000.0,
+      "price": 29.42,
+      "change_percent": 6.79
     },
     {
-      "code": "002475",
-      "name": "立讯精密",
-      "mainNetIn": 1790000000.0,
-      "price": 57.11,
-      "change_percent": 4.1
+      "code": "600150",
+      "name": "中国船舶",
+      "mainNetIn": 523000000.0,
+      "price": 40.82,
+      "change_percent": 3.26
     },
     {
-      "code": "601318",
-      "name": "中国平安",
-      "mainNetIn": 1250000000.0,
-      "price": 56.13,
-      "change_percent": 2.04
+      "code": "300750",
+      "name": "宁德时代",
+      "mainNetIn": 493000000.0,
+      "price": 338.06,
+      "change_percent": 0.36
+    },
+    {
+      "code": "600176",
+      "name": "中国巨石",
+      "mainNetIn": 486000000.0,
+      "price": 43.46,
+      "change_percent": 1.85
     },
     {
       "code": "600030",
       "name": "中信证券",
-      "mainNetIn": 1124000000.0,
-      "price": 27.77,
-      "change_percent": 2.28
+      "mainNetIn": 476000000.0,
+      "price": 27.6,
+      "change_percent": 0.99
     },
     {
-      "code": "002463",
-      "name": "沪电股份",
-      "mainNetIn": 1109000000.0,
-      "price": 119.22,
-      "change_percent": 4.31
+      "code": "001309",
+      "name": "德明利",
+      "mainNetIn": 475000000.0,
+      "price": 418.22,
+      "change_percent": 2.09
     },
     {
-      "code": "002384",
-      "name": "东山精密",
-      "mainNetIn": 1073000000.0,
-      "price": 194.36,
-      "change_percent": 1.84
+      "code": "000636",
+      "name": "风华高科",
+      "mainNetIn": 475000000.0,
+      "price": 50.9,
+      "change_percent": 2.41
     },
     {
-      "code": "601899",
-      "name": "紫金矿业",
-      "mainNetIn": 974000000.0,
-      "price": 34.47,
-      "change_percent": 2.35
+      "code": "601169",
+      "name": "北京银行",
+      "mainNetIn": 473000000.0,
+      "price": 5.64,
+      "change_percent": 1.99
     },
     {
-      "code": "300059",
-      "name": "东方财富",
-      "mainNetIn": 938000000.0,
-      "price": 19.36,
-      "change_percent": 2.27
-    },
-    {
-      "code": "688256",
-      "name": "寒武纪",
-      "mainNetIn": 907000000.0,
-      "price": 1020.0,
-      "change_percent": 0.94
+      "code": "601991",
+      "name": "大唐发电",
+      "mainNetIn": 423000000.0,
+      "price": 6.02,
+      "change_percent": 3.26
     }
   ],
   "sectorTopGainers": [
     {
-      "name": "金融行业",
-      "changePct": "2.21",
+      "name": "船舶制造",
+      "changePct": "2.61",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "锦龙股份(10.04)"
-    },
-    {
-      "name": "化纤行业",
-      "changePct": "1.65",
-      "turnoverRate": "",
-      "changePct5d": "",
-      "changePct20d": "",
-      "leadStock": "ST海龙(9.88)"
+      "leadStock": "中国船舶(3.26)"
     },
     {
       "name": "电力行业",
-      "changePct": "1.6",
+      "changePct": "1.38",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "郴电国际(9.95)"
+      "leadStock": "华银电力(10.06)"
+    },
+    {
+      "name": "金融行业",
+      "changePct": "0.93",
+      "turnoverRate": "",
+      "changePct5d": "",
+      "changePct20d": "",
+      "leadStock": "宁波银行(3.49)"
     },
     {
       "name": "玻璃行业",
-      "changePct": "1.54",
+      "changePct": "0.84",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "菲利华(6.47)"
+      "leadStock": "再升科技(10.05)"
     },
     {
-      "name": "环保行业",
-      "changePct": "1.49",
+      "name": "飞机制造",
+      "changePct": "0.81",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "高能环境(5.91)"
+      "leadStock": "航天动力(5.24)"
     },
     {
-      "name": "石油行业",
-      "changePct": "1.44",
+      "name": "陶瓷行业",
+      "changePct": "0.55",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "潜能恒信(7.42)"
+      "leadStock": "悦心健康(1.77)"
     }
   ],
   "sectorConceptGainers": [
     {
-      "name": "金融行业",
-      "changePct": "2.21",
+      "name": "船舶制造",
+      "changePct": "2.61",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "锦龙股份(10.04)"
-    },
-    {
-      "name": "化纤行业",
-      "changePct": "1.65",
-      "turnoverRate": "",
-      "changePct5d": "",
-      "changePct20d": "",
-      "leadStock": "ST海龙(9.88)"
+      "leadStock": "中国船舶(3.26)"
     },
     {
       "name": "电力行业",
-      "changePct": "1.6",
+      "changePct": "1.38",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "郴电国际(9.95)"
+      "leadStock": "华银电力(10.06)"
+    },
+    {
+      "name": "金融行业",
+      "changePct": "0.93",
+      "turnoverRate": "",
+      "changePct5d": "",
+      "changePct20d": "",
+      "leadStock": "宁波银行(3.49)"
     },
     {
       "name": "玻璃行业",
-      "changePct": "1.54",
+      "changePct": "0.84",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "菲利华(6.47)"
+      "leadStock": "再升科技(10.05)"
     },
     {
-      "name": "环保行业",
-      "changePct": "1.49",
+      "name": "飞机制造",
+      "changePct": "0.81",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "高能环境(5.91)"
+      "leadStock": "航天动力(5.24)"
     },
     {
-      "name": "石油行业",
-      "changePct": "1.44",
+      "name": "陶瓷行业",
+      "changePct": "0.55",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "潜能恒信(7.42)"
+      "leadStock": "悦心健康(1.77)"
     }
   ],
   "sectorFlowIn": [
     {
       "name": "电子信息",
-      "changePct": "0.32",
+      "changePct": "-0.56",
       "mainNetInflow": "",
       "mainNetInflow5d": "",
       "upDownRatio": ""
     },
     {
       "name": "电子器件",
-      "changePct": "0.13",
+      "changePct": "-0.43",
       "mainNetInflow": "",
       "mainNetInflow5d": "",
       "upDownRatio": ""
     },
     {
-      "name": "有色金属",
-      "changePct": "1.1",
+      "name": "机械行业",
+      "changePct": "-1.52",
       "mainNetInflow": "",
       "mainNetInflow5d": "",
       "upDownRatio": ""
@@ -240,189 +240,189 @@
     {
       "code": "usDJI",
       "name": "道琼斯工业",
-      "price": 53577.4,
-      "change_percent": 0.3,
-      "time": "2026-08-25"
+      "price": 52380.66,
+      "change_percent": -0.77,
+      "time": "2026-09-09"
     },
     {
       "code": "usIXIC",
       "name": "纳斯达克",
-      "price": 26151.3,
-      "change_percent": 0.66,
-      "time": "2026-08-25"
+      "price": 26253.34,
+      "change_percent": -0.64,
+      "time": "2026-09-09"
     },
     {
       "code": "usINX",
       "name": "标普500",
-      "price": 7677.28,
-      "change_percent": 0.32,
-      "time": "2026-08-25"
+      "price": 7636.36,
+      "change_percent": -0.48,
+      "time": "2026-09-09"
     },
     {
       "code": "usNDX",
       "name": "纳斯达克100",
-      "price": 29209.23,
-      "change_percent": 0.64,
-      "time": "2026-08-25"
+      "price": 29421.55,
+      "change_percent": -0.29,
+      "time": "2026-09-09"
     },
     {
       "code": "usSOX",
       "name": "费城半导体SOX",
-      "price": 11588.04,
-      "change_percent": 1.44,
-      "time": "2026-08-25"
+      "price": 11931.32,
+      "change_percent": 0.37,
+      "time": "2026-09-09"
     }
   ],
   "magnificent7": [
     {
       "code": "usAAPL.OQ",
       "name": "苹果",
-      "price": 312.4824,
-      "change_percent": 0.83
+      "price": 315.34,
+      "change_percent": -0.28
     },
     {
       "code": "usMSFT.OQ",
       "name": "微软",
-      "price": 494.655,
-      "change_percent": 0.6
+      "price": 491.65,
+      "change_percent": -0.47
     },
     {
       "code": "usNVDA.OQ",
       "name": "英伟达",
-      "price": 211.38,
-      "change_percent": -0.78
+      "price": 223.67,
+      "change_percent": -0.91
     },
     {
       "code": "usGOOGL.OQ",
       "name": "谷歌",
-      "price": 342.52,
-      "change_percent": -1.28
+      "price": 330.65,
+      "change_percent": -2.28
     },
     {
       "code": "usAMZN.OQ",
       "name": "亚马逊",
-      "price": 259.7656,
-      "change_percent": -0.5
+      "price": 252.4,
+      "change_percent": -1.78
     },
     {
       "code": "usMETA.OQ",
       "name": "Meta",
-      "price": 582.955,
-      "change_percent": 2.26
+      "price": 653.69,
+      "change_percent": 6.55
     },
     {
       "code": "usTSLA.OQ",
       "name": "特斯拉",
-      "price": 344.145,
-      "change_percent": -1.74
+      "price": 367.81,
+      "change_percent": -0.1
     }
   ],
   "chipStocks": [
     {
       "code": "usMU.OQ",
       "name": "美光科技",
-      "price": 938.26,
-      "change_percent": 0.57,
+      "price": 1027.77,
+      "change_percent": 2.75,
       "market": "us"
     },
     {
       "code": "usSNDK.OQ",
       "name": "闪迪",
-      "price": 1488.71,
-      "change_percent": 0.54,
+      "price": 1764.17,
+      "change_percent": 1.51,
       "market": "us"
     },
     {
       "code": "688981",
       "name": "中芯国际",
-      "price": 124.15,
-      "change_percent": 3.46,
+      "price": 119.18,
+      "change_percent": -1.1,
       "market": "cn"
     },
     {
       "code": "688008",
       "name": "澜起科技",
-      "price": 201.0,
-      "change_percent": 3.38,
+      "price": 195.33,
+      "change_percent": 0.02,
       "market": "cn"
     },
     {
       "code": "688256",
       "name": "寒武纪",
-      "price": 1020.0,
-      "change_percent": 0.94,
+      "price": 1043.84,
+      "change_percent": -1.05,
       "market": "cn"
     }
   ],
   "news": [
     {
-      "news_id": "608263855170610.html",
-      "news_title": "第二届世界人形机器人运动会收官 智元斩获18金位列榜首",
+      "news_id": "609103870625397.html",
+      "news_title": "两部门：对涉嫌低价无序竞争的经营者进行提醒告诫 必要时组织开展成本调查",
       "rank": "1",
-      "publish_time": 1787755397,
+      "publish_time": 1789030677,
       "source": "东方财富"
     },
     {
-      "news_id": "608263855171889.html",
-      "news_title": "中国飞鹤2026半年报公布：营收93.6亿元 净利9.01亿",
+      "news_id": "609103870628746.html",
+      "news_title": "保利发展：8月签约金额150.13亿元 同比下降16.67%",
       "rank": "2",
-      "publish_time": 1787755377,
+      "publish_time": 1789030666,
       "source": "东方财富"
     },
     {
-      "news_id": "608263855170094.html",
-      "news_title": "西藏吉隆遭受泥石流灾害 已造成3人遇难265人失联",
+      "news_id": "609103870630632.html",
+      "news_title": "机构：预估2026年苹果iPhone Duo出货量约500万支",
       "rank": "3",
-      "publish_time": 1787755356,
+      "publish_time": 1789030665,
       "source": "东方财富"
     },
     {
-      "news_id": "608263855169668.html",
-      "news_title": "港股IPO：征祥医药（南京）递表港交所",
+      "news_id": "609103870622769.html",
+      "news_title": "机构：上调窗口即将开启 预计本轮零售价上调幅度或至400元/吨附近",
       "rank": "4",
-      "publish_time": 1787755232,
+      "publish_time": 1789030344,
       "source": "东方财富"
     },
     {
-      "news_id": "608263855166670.html",
-      "news_title": "北斗星通：2026年半年度净利润同比增长2784%",
+      "news_id": "609103870622618.html",
+      "news_title": "欧盟网络安全局已获准访问OpenAI最新模型GPT-6 Astra",
       "rank": "5",
-      "publish_time": 1787755048,
+      "publish_time": 1789030244,
       "source": "东方财富"
     },
     {
-      "news_id": "608263855167356.html",
-      "news_title": "MiniMax修订与阿里巴巴签订的API及云服务协议年度上限",
+      "news_id": "609103870621196.html",
+      "news_title": "旗天科技：副总裁石爱萍因个人原因辞职",
       "rank": "6",
-      "publish_time": 1787755008,
+      "publish_time": 1789030065,
       "source": "东方财富"
     },
     {
-      "news_id": "608263855160195.html",
-      "news_title": "摩根士丹利财富管理 ：最新PCE报告未能降低美联储加息预期",
+      "news_id": "609103870613915.html",
+      "news_title": "仙坛股份：8月鸡肉产品销售收入同比增长6.15%",
       "rank": "7",
-      "publish_time": 1787754842,
+      "publish_time": 1789029863,
       "source": "东方财富"
     },
     {
-      "news_id": "608263855157163.html",
-      "news_title": "美国上周原油库存增加9.5万桶 市场预估为增加59.7万桶",
+      "news_id": "609103870611342.html",
+      "news_title": "先惠技术：实控人及高管拟4000万元—8000万元增持公司股份",
       "rank": "8",
-      "publish_time": 1787754744,
+      "publish_time": 1789029664,
       "source": "东方财富"
     },
     {
-      "news_id": "608263855152697.html",
-      "news_title": "伊朗称与阿曼就霍尔木兹海峡收益分配达成协议",
+      "news_id": "609103870613383.html",
+      "news_title": "文远知行获西班牙首张L4级自动驾驶乘用车运营牌照",
       "rank": "9",
-      "publish_time": 1787754619,
+      "publish_time": 1789029645,
       "source": "东方财富"
     },
     {
-      "news_id": "608263855166452.html",
-      "news_title": "保利发展：上半年净利润19.59亿元 同比下降40.84%",
+      "news_id": "609103870611087.html",
+      "news_title": "意法半导体：预计2027年公司数据中心营收80%来自光连接产品 多家客户已签署长约",
       "rank": "10",
-      "publish_time": 1787754613,
+      "publish_time": 1789029591,
       "source": "东方财富"
     }
   ]

@@ -1,236 +1,236 @@
 {
-  "_updated": "2026-09-17T20:26:34.765485",
-  "_date": "2026/09/17",
+  "_updated": "2026-09-18T17:00:48.428562",
+  "_date": "2026/09/18",
   "aIndex": [
     {
       "code": "sh000001",
       "name": "上证指数",
-      "price": 3875.6044,
-      "prev_close": 3891.6005,
-      "change": -16.0,
-      "change_percent": -0.41,
-      "time": "2026-09-17"
+      "price": 3911.8714,
+      "prev_close": 3875.6044,
+      "change": 36.27,
+      "change_percent": 0.94,
+      "time": "2026-09-18"
     },
     {
       "code": "sz399001",
       "name": "深证成指",
-      "price": 13409.908,
-      "prev_close": 13454.743,
-      "change": -44.84,
-      "change_percent": -0.33,
-      "time": "2026-09-17"
+      "price": 13640.873,
+      "prev_close": 13409.908,
+      "change": 230.97,
+      "change_percent": 1.72,
+      "time": "2026-09-18"
     },
     {
       "code": "sz399006",
       "name": "创业板指",
-      "price": 3298.31,
-      "prev_close": 3311.474,
-      "change": -13.16,
-      "change_percent": -0.4,
-      "time": "2026-09-17"
+      "price": 3372.676,
+      "prev_close": 3298.31,
+      "change": 74.37,
+      "change_percent": 2.25,
+      "time": "2026-09-18"
     }
   ],
   "marketBreadth": {
-    "up": 2503,
-    "down": 2558,
-    "flat": 148,
-    "limitUp": 50,
-    "limitDown": 2,
-    "upRatio": 48.05,
+    "up": 3937,
+    "down": 1109,
+    "flat": 163,
+    "limitUp": 79,
+    "limitDown": 1,
+    "upRatio": 75.58,
     "totalAmount": 0,
     "amountChange": 0,
     "distribution": []
   },
   "fundFlowTop10": [
     {
+      "code": "688825",
+      "name": "长鑫科技",
+      "mainNetIn": 2617000000.0,
+      "price": 55.54,
+      "change_percent": 3.87
+    },
+    {
       "code": "000725",
       "name": "京东方A",
-      "mainNetIn": 2394000000.0,
-      "price": 5.75,
-      "change_percent": 5.5
+      "mainNetIn": 1805000000.0,
+      "price": 5.92,
+      "change_percent": 2.96
     },
     {
-      "code": "600487",
-      "name": "亨通光电",
-      "mainNetIn": 1424000000.0,
-      "price": 68.49,
-      "change_percent": 4.72
+      "code": "603986",
+      "name": "兆易创新",
+      "mainNetIn": 1571000000.0,
+      "price": 388.18,
+      "change_percent": 4.95
     },
     {
-      "code": "300750",
-      "name": "宁德时代",
-      "mainNetIn": 1246000000.0,
-      "price": 304.3,
-      "change_percent": -0.39
+      "code": "600584",
+      "name": "长电科技",
+      "mainNetIn": 1559000000.0,
+      "price": 73.0,
+      "change_percent": 7.75
     },
     {
-      "code": "300394",
-      "name": "天孚通信",
-      "mainNetIn": 957000000.0,
-      "price": 277.65,
-      "change_percent": 3.41
+      "code": "300308",
+      "name": "中际旭创",
+      "mainNetIn": 1098000000.0,
+      "price": 926.43,
+      "change_percent": 3.4
     },
     {
-      "code": "688802",
-      "name": "沐曦股份",
-      "mainNetIn": 938000000.0,
-      "price": 546.5,
-      "change_percent": 14.44
+      "code": "002475",
+      "name": "立讯精密",
+      "mainNetIn": 1087000000.0,
+      "price": 54.1,
+      "change_percent": 3.78
     },
     {
-      "code": "688795",
-      "name": "摩尔线程",
-      "mainNetIn": 739000000.0,
-      "price": 395.58,
-      "change_percent": 8.68
+      "code": "300502",
+      "name": "新易盛",
+      "mainNetIn": 1004000000.0,
+      "price": 445.0,
+      "change_percent": 4.87
+    },
+    {
+      "code": "300014",
+      "name": "亿纬锂能",
+      "mainNetIn": 763000000.0,
+      "price": 51.56,
+      "change_percent": 6.9
+    },
+    {
+      "code": "001309",
+      "name": "德明利",
+      "mainNetIn": 747000000.0,
+      "price": 413.09,
+      "change_percent": 4.07
     },
     {
       "code": "000100",
       "name": "TCL科技",
-      "mainNetIn": 465000000.0,
-      "price": 4.84,
-      "change_percent": 1.68
-    },
-    {
-      "code": "600150",
-      "name": "中国船舶",
-      "mainNetIn": 421000000.0,
-      "price": 38.96,
-      "change_percent": 3.1
-    },
-    {
-      "code": "601869",
-      "name": "长飞光纤",
-      "mainNetIn": 386000000.0,
-      "price": 467.03,
-      "change_percent": 1.31
-    },
-    {
-      "code": "688498",
-      "name": "源杰科技",
-      "mainNetIn": 380000000.0,
-      "price": 1784.66,
-      "change_percent": 1.93
+      "mainNetIn": 729000000.0,
+      "price": 4.99,
+      "change_percent": 3.31
     }
   ],
   "sectorTopGainers": [
     {
       "name": "陶瓷行业",
-      "changePct": "3.97",
+      "changePct": "6.71",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "开尔新材(11.08)"
+      "leadStock": "松发股份(7.49)"
     },
     {
-      "name": "酒店旅游",
-      "changePct": "1.67",
+      "name": "次新股",
+      "changePct": "4.96",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "大连圣亚(10.01)"
+      "leadStock": "C沈鼓(177.74)"
     },
     {
-      "name": "船舶制造",
-      "changePct": "1.58",
+      "name": "开发区",
+      "changePct": "3.7",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "中国船舶(3.1)"
+      "leadStock": "高新发展(7.63)"
     },
     {
-      "name": "传媒娱乐",
-      "changePct": "1.56",
+      "name": "电子器件",
+      "changePct": "2.43",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "南华生物(10.04)"
+      "leadStock": "国民技术(10.9)"
     },
     {
-      "name": "家具行业",
-      "changePct": "1.36",
+      "name": "机械行业",
+      "changePct": "2.19",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "德尔未来(7.12)"
+      "leadStock": "沈阳机床(10.08)"
     },
     {
-      "name": "农林牧渔",
-      "changePct": "1.26",
+      "name": "发电设备",
+      "changePct": "2.16",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "华英农业(10.1)"
+      "leadStock": "太阳电缆(10.03)"
     }
   ],
   "sectorConceptGainers": [
     {
       "name": "陶瓷行业",
-      "changePct": "3.97",
+      "changePct": "6.71",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "开尔新材(11.08)"
+      "leadStock": "松发股份(7.49)"
     },
     {
-      "name": "酒店旅游",
-      "changePct": "1.67",
+      "name": "次新股",
+      "changePct": "4.96",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "大连圣亚(10.01)"
+      "leadStock": "C沈鼓(177.74)"
     },
     {
-      "name": "船舶制造",
-      "changePct": "1.58",
+      "name": "开发区",
+      "changePct": "3.7",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "中国船舶(3.1)"
+      "leadStock": "高新发展(7.63)"
     },
     {
-      "name": "传媒娱乐",
-      "changePct": "1.56",
+      "name": "电子器件",
+      "changePct": "2.43",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "南华生物(10.04)"
+      "leadStock": "国民技术(10.9)"
     },
     {
-      "name": "家具行业",
-      "changePct": "1.36",
+      "name": "机械行业",
+      "changePct": "2.19",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "德尔未来(7.12)"
+      "leadStock": "沈阳机床(10.08)"
     },
     {
-      "name": "农林牧渔",
-      "changePct": "1.26",
+      "name": "发电设备",
+      "changePct": "2.16",
       "turnoverRate": "",
       "changePct5d": "",
       "changePct20d": "",
-      "leadStock": "华英农业(10.1)"
+      "leadStock": "太阳电缆(10.03)"
     }
   ],
   "sectorFlowIn": [
     {
       "name": "电子器件",
-      "changePct": "-0.74",
+      "changePct": "2.43",
       "mainNetInflow": "",
       "mainNetInflow5d": "",
       "upDownRatio": ""
     },
     {
       "name": "电子信息",
-      "changePct": "-0.14",
+      "changePct": "1.64",
       "mainNetInflow": "",
       "mainNetInflow5d": "",
       "upDownRatio": ""
     },
     {
-      "name": "机械行业",
-      "changePct": "-0.3",
+      "name": "次新股",
+      "changePct": "4.96",
       "mainNetInflow": "",
       "mainNetInflow5d": "",
       "upDownRatio": ""
@@ -240,189 +240,189 @@
     {
       "code": "usDJI",
       "name": "道琼斯工业",
-      "price": 51461.9,
-      "change_percent": -1.21,
-      "time": "2026-09-16"
+      "price": 51778.04,
+      "change_percent": 0.61,
+      "time": "2026-09-17"
     },
     {
       "code": "usIXIC",
       "name": "纳斯达克",
-      "price": 25978.42,
-      "change_percent": -0.01,
-      "time": "2026-09-16"
+      "price": 26418.3,
+      "change_percent": 1.69,
+      "time": "2026-09-17"
     },
     {
       "code": "usINX",
       "name": "标普500",
-      "price": 7551.81,
-      "change_percent": -0.45,
-      "time": "2026-09-16"
+      "price": 7637.76,
+      "change_percent": 1.14,
+      "time": "2026-09-17"
     },
     {
       "code": "usNDX",
       "name": "纳斯达克100",
-      "price": 28945.06,
-      "change_percent": 0.02,
-      "time": "2026-09-16"
+      "price": 29446.98,
+      "change_percent": 1.73,
+      "time": "2026-09-17"
     },
     {
       "code": "usSOX",
       "name": "费城半导体SOX",
-      "price": 11246.11,
-      "change_percent": 0.63,
-      "time": "2026-09-16"
+      "price": 11599.49,
+      "change_percent": 3.14,
+      "time": "2026-09-17"
     }
   ],
   "magnificent7": [
     {
       "code": "usAAPL.OQ",
       "name": "苹果",
-      "price": 332.41,
-      "change_percent": 0.32
+      "price": 337.0,
+      "change_percent": 1.38
     },
     {
       "code": "usMSFT.OQ",
       "name": "微软",
-      "price": 490.3,
-      "change_percent": -1.37
+      "price": 497.75,
+      "change_percent": 1.52
     },
     {
       "code": "usNVDA.OQ",
       "name": "英伟达",
-      "price": 213.9,
-      "change_percent": 0.82
+      "price": 219.34,
+      "change_percent": 2.54
     },
     {
       "code": "usGOOGL.OQ",
       "name": "谷歌",
-      "price": 342.87,
-      "change_percent": -0.61
+      "price": 347.33,
+      "change_percent": 1.3
     },
     {
       "code": "usAMZN.OQ",
       "name": "亚马逊",
-      "price": 245.96,
-      "change_percent": -0.99
+      "price": 251.19,
+      "change_percent": 2.13
     },
     {
       "code": "usMETA.OQ",
       "name": "Meta",
-      "price": 673.31,
-      "change_percent": 0.46
+      "price": 682.31,
+      "change_percent": 1.34
     },
     {
       "code": "usTSLA.OQ",
       "name": "特斯拉",
-      "price": 358.08,
-      "change_percent": 0.42
+      "price": 366.2,
+      "change_percent": 2.27
     }
   ],
   "chipStocks": [
     {
       "code": "usMU.OQ",
       "name": "美光科技",
-      "price": 926.55,
-      "change_percent": -0.11,
+      "price": 977.5,
+      "change_percent": 5.5,
       "market": "us"
     },
     {
       "code": "usSNDK.OQ",
       "name": "闪迪",
-      "price": 1519.97,
-      "change_percent": -0.71,
+      "price": 1614.39,
+      "change_percent": 6.21,
       "market": "us"
     },
     {
       "code": "688981",
       "name": "中芯国际",
-      "price": 118.62,
-      "change_percent": -1.89,
+      "price": 122.0,
+      "change_percent": 2.85,
       "market": "cn"
     },
     {
       "code": "688008",
       "name": "澜起科技",
-      "price": 194.33,
-      "change_percent": -2.78,
+      "price": 202.53,
+      "change_percent": 4.22,
       "market": "cn"
     },
     {
       "code": "688256",
       "name": "寒武纪",
-      "price": 1105.99,
-      "change_percent": -2.64,
+      "price": 1113.14,
+      "change_percent": 0.65,
       "market": "cn"
     }
   ],
   "news": [
     {
-      "news_id": "609173877498183.html",
-      "news_title": "国际贵金属快速拉升 现货白银价格涨4%",
+      "news_id": "609183878651466.html",
+      "news_title": "白银有色：中国中信集团有限公司拟减持不超1%股份",
       "rank": "1",
-      "publish_time": 1789647740,
+      "publish_time": 1789721760,
       "source": "东方财富"
     },
     {
-      "news_id": "609173877498568.html",
-      "news_title": "美元兑日元下跌0.6%",
+      "news_id": "609183878649998.html",
+      "news_title": "现货白银涨超3%",
       "rank": "2",
-      "publish_time": 1789647734,
+      "publish_time": 1789721723,
       "source": "东方财富"
     },
     {
-      "news_id": "609173877498286.html",
-      "news_title": "高盛谨慎看待长期债券 称波动性可能进一步加大",
+      "news_id": "609183878650172.html",
+      "news_title": "*ST九鼎：因对2023-2024年存货及投资性房地产核算不准确被证监会立案",
       "rank": "3",
-      "publish_time": 1789647669,
+      "publish_time": 1789721704,
       "source": "东方财富"
     },
     {
-      "news_id": "609173877497862.html",
-      "news_title": "美股三大指数期货拉升 均涨超1%",
+      "news_id": "609183878652290.html",
+      "news_title": "汽轮科技：自主燃机完成72+24小时满负荷连续运行试验，具备商业化投运条件",
       "rank": "4",
-      "publish_time": 1789647583,
+      "publish_time": 1789721700,
       "source": "东方财富"
     },
     {
-      "news_id": "609173877494975.html",
-      "news_title": "CoreWeave股价在公布可转换债券和股票发行后走势逆转",
+      "news_id": "609183878647228.html",
+      "news_title": "胜宏科技增资至9.8亿 增幅约13%",
       "rank": "5",
-      "publish_time": 1789647264,
+      "publish_time": 1789721597,
       "source": "东方财富"
     },
     {
-      "news_id": "609173877494623.html",
-      "news_title": "现货白银向上触及65美元/盎司",
+      "news_id": "609183878644988.html",
+      "news_title": "消息称三星显示初步敲定牙山A7生产线2028年7月启动设备交付",
       "rank": "6",
-      "publish_time": 1789647247,
+      "publish_time": 1789721484,
       "source": "东方财富"
     },
     {
-      "news_id": "609173877492377.html",
-      "news_title": "标普500指数期货涨幅扩大至1%",
+      "news_id": "609183878645083.html",
+      "news_title": "IDC：2026年上半年中国PC显示器出货量1430万台 同比下降2.2%",
       "rank": "7",
-      "publish_time": 1789647060,
+      "publish_time": 1789721421,
       "source": "东方财富"
     },
     {
-      "news_id": "609173877491751.html",
-      "news_title": "现货白银日内涨幅扩大至3%",
+      "news_id": "609183878643751.html",
+      "news_title": "古鳌科技：前实控人操纵证券市场案终审维持原判",
       "rank": "8",
-      "publish_time": 1789647001,
+      "publish_time": 1789721307,
       "source": "东方财富"
     },
     {
-      "news_id": "609173877494717.html",
-      "news_title": "五角大楼与洛克希德公司达成协议",
+      "news_id": "609183878645696.html",
+      "news_title": "酒鬼酒总经理程军：与胖东来合作是新渠道拓展 不会对传统渠道形成冲击",
       "rank": "9",
-      "publish_time": 1789646997,
+      "publish_time": 1789721220,
       "source": "东方财富"
     },
     {
-      "news_id": "609173877489244.html",
-      "news_title": "凯旺科技：控股股东及实控人拟协议转让5.60%股份",
+      "news_id": "609183878642067.html",
+      "news_title": "大商所：中秋节、国庆节假期调整相关品种期货合约涨跌停板幅度和交易保证金水平",
       "rank": "10",
-      "publish_time": 1789646930,
+      "publish_time": 1789721060,
       "source": "东方财富"
     }
   ]

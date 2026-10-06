@@ -1,6 +1,6 @@
 {
-  "_updated": "2026-10-05T21:59:53.923095",
-  "_date": "2026/10/05",
+  "_updated": "2026-10-06T21:35:03.649958",
+  "_date": "2026/10/06",
   "aIndex": [
     {
       "code": "sh000001",
@@ -240,96 +240,96 @@
     {
       "code": "usDJI",
       "name": "道琼斯工业",
-      "price": 51176.96,
-      "change_percent": 0.49,
-      "time": "2026-10-02"
+      "price": 51267.9,
+      "change_percent": 0.18,
+      "time": "2026-10-05"
     },
     {
       "code": "usIXIC",
       "name": "纳斯达克",
-      "price": 27190.86,
-      "change_percent": 1.19,
-      "time": "2026-10-02"
+      "price": 27477.31,
+      "change_percent": 1.05,
+      "time": "2026-10-05"
     },
     {
       "code": "usINX",
       "name": "标普500",
-      "price": 7722.72,
-      "change_percent": 0.73,
-      "time": "2026-10-02"
+      "price": 7773.95,
+      "change_percent": 0.66,
+      "time": "2026-10-05"
     },
     {
       "code": "usNDX",
       "name": "纳斯达克100",
-      "price": 30807.93,
-      "change_percent": 1.0,
-      "time": "2026-10-02"
+      "price": 31076.44,
+      "change_percent": 0.87,
+      "time": "2026-10-05"
     },
     {
       "code": "usSOX",
       "name": "费城半导体SOX",
-      "price": 13136.67,
-      "change_percent": 2.4,
-      "time": "2026-10-02"
+      "price": 13172.74,
+      "change_percent": 0.27,
+      "time": "2026-10-05"
     }
   ],
   "magnificent7": [
     {
       "code": "usAAPL.OQ",
       "name": "苹果",
-      "price": 333.545,
-      "change_percent": -0.04
+      "price": 332.86,
+      "change_percent": -0.01
     },
     {
       "code": "usMSFT.OQ",
       "name": "微软",
-      "price": 527.59,
-      "change_percent": 1.94
+      "price": 530.15,
+      "change_percent": 0.95
     },
     {
       "code": "usNVDA.OQ",
       "name": "英伟达",
-      "price": 237.0727,
-      "change_percent": 1.33
+      "price": 241.21,
+      "change_percent": 0.97
     },
     {
       "code": "usGOOGL.OQ",
       "name": "谷歌",
-      "price": 344.86,
-      "change_percent": 0.4
+      "price": 345.83,
+      "change_percent": -0.18
     },
     {
       "code": "usAMZN.OQ",
       "name": "亚马逊",
-      "price": 252.24,
-      "change_percent": 0.29
+      "price": 252.675,
+      "change_percent": 0.51
     },
     {
       "code": "usMETA.OQ",
       "name": "Meta",
-      "price": 737.54,
-      "change_percent": 1.3
+      "price": 746.895,
+      "change_percent": 0.67
     },
     {
       "code": "usTSLA.OQ",
       "name": "特斯拉",
-      "price": 376.07,
-      "change_percent": 1.48
+      "price": 382.85,
+      "change_percent": 1.09
     }
   ],
   "chipStocks": [
     {
       "code": "usMU.OQ",
       "name": "美光科技",
-      "price": 1058.515,
-      "change_percent": -1.52,
+      "price": 1058.495,
+      "change_percent": -0.51,
       "market": "us"
     },
     {
       "code": "usSNDK.OQ",
       "name": "闪迪",
-      "price": 1715.37,
-      "change_percent": -0.27,
+      "price": 1687.03,
+      "change_percent": -1.01,
       "market": "us"
     },
     {
@@ -356,73 +356,73 @@
   ],
   "news": [
     {
-      "news_id": "610053888683180.html",
-      "news_title": "两年期美国国债收益率走低 最新下行0.66个基点 报4.818%",
+      "news_id": "610063888798934.html",
+      "news_title": "美股开盘：纳指续创新高、标普500指数逼近前高 英伟达涨超1%续创新高",
       "rank": "1",
-      "publish_time": 1791208417,
+      "publish_time": 1791293454,
       "source": "东方财富"
     },
     {
-      "news_id": "610053888680941.html",
-      "news_title": "巴西基准股指Bovespa延续涨势 大涨9%",
+      "news_id": "610063888798341.html",
+      "news_title": "Skydance预计2026至2030年营收复合年增长率为中个位数",
       "rank": "2",
-      "publish_time": 1791207991,
+      "publish_time": 1791293116,
       "source": "东方财富"
     },
     {
-      "news_id": "610053888680816.html",
-      "news_title": "美国9月标普全球综合PMI终值58.4 9月标普全球服务业PMI终值58.8",
+      "news_id": "610063888798264.html",
+      "news_title": "美国能源部长赖特：柴油价格在几周前已达到峰值",
       "rank": "3",
-      "publish_time": 1791207930,
+      "publish_time": 1791292803,
       "source": "东方财富"
     },
     {
-      "news_id": "610053888679555.html",
-      "news_title": "台积电再创新高 总市值达2.5万亿美元",
+      "news_id": "610063888797343.html",
+      "news_title": "摩根大通CEO：应该在需求旺盛的地方建设数据中心",
       "rank": "4",
-      "publish_time": 1791207792,
+      "publish_time": 1791292578,
       "source": "东方财富"
     },
     {
-      "news_id": "610053888677953.html",
-      "news_title": "Cerebras股价上涨10.8%",
+      "news_id": "610063888796348.html",
+      "news_title": "机构看好港股新股市场继续火热 月之暗面、可灵AI或成下一批重磅IPO",
       "rank": "5",
-      "publish_time": 1791207446,
+      "publish_time": 1791292500,
       "source": "东方财富"
     },
     {
-      "news_id": "610053888676891.html",
-      "news_title": "巴西ETF EWZ开盘大涨12%",
+      "news_id": "610063888796715.html",
+      "news_title": "国际能源署将于10月14日至15日会议上确定G7释储方案的细节",
       "rank": "6",
-      "publish_time": 1791207264,
+      "publish_time": 1791292278,
       "source": "东方财富"
     },
     {
-      "news_id": "610053888676579.html",
-      "news_title": "加拿大9月综合PMI为48.7 9月服务业采购经理人指数(PMI)为48.3",
+      "news_id": "610063888796557.html",
+      "news_title": "应用材料公司和英特尔计划人工智能芯片和系统的先进封装技术方面取得突破",
       "rank": "7",
-      "publish_time": 1791207072,
+      "publish_time": 1791291999,
       "source": "东方财富"
     },
     {
-      "news_id": "610053888675991.html",
-      "news_title": "美股三大指数开盘涨跌不一 Vaxcyte涨超54%",
+      "news_id": "610063888796015.html",
+      "news_title": "全球科技富豪财富暴增！",
       "rank": "8",
-      "publish_time": 1791207051,
+      "publish_time": 1791291495,
       "source": "东方财富"
     },
     {
-      "news_id": "610053888674823.html",
-      "news_title": "2026国庆档总票房破9亿",
+      "news_id": "610063888795671.html",
+      "news_title": "布伦特原油日内跌3%",
       "rank": "9",
-      "publish_time": 1791206522,
+      "publish_time": 1791291226,
       "source": "东方财富"
     },
     {
-      "news_id": "610053888674990.html",
-      "news_title": "巴西基准股指Bovespa指数大涨4.9% 创2022年以来最大涨幅",
+      "news_id": "610063888795197.html",
+      "news_title": "不敌当地竞争对手 7-11便利店退出印度",
       "rank": "10",
-      "publish_time": 1791206463,
+      "publish_time": 1791291069,
       "source": "东方财富"
     }
   ]
